@@ -342,13 +342,45 @@ public class OperatorMain {
 
         // 십진수 303 과 147 에 대해 비트연산자 &를 직접 해보기
 
-      /*  100000000      10010011      100011111
+      /*  100000000      10010011      100101111
         100010000                     10010011
-        100011111                         10011 */
+        100011111                         11 */
 
         int bitA = 303;
         int bitB = 147;
         System.out.println(bitA & bitB);
+
+
+        // 16진수 12f와 147에 대해 비트연산자 & 결과?
+        // 16진수 -> 1~9 이후 10 = a, 11= b ... 15 = f
+        // 12f= 303
+
+        //2진수든, 16진수든 String으로 표현
+        String sixteenNum = "12f";
+
+        // 16진수(String)를 10진수(int)로 변환
+        // Integer.parseInt = 기본적으로 십진수 문자열을 십진수 int로 변환
+        // 16진수면 파라미터에 16을 추가
+        int tenNum = Integer.parseInt("12f", 16);
+        System.out.println(tenNum);
+
+        // 10진수(int)를 2진수(String)로 변환
+        String binaryNum = Integer.toBinaryString(303);
+        System.out.println(binaryNum);
+
+        // 10진수(int)를 16진수(String)로 변환
+
+        String hexNum = Integer.toHexString(303);
+        System.out.println(hexNum);
+
+        // 2진수는 영어로 바이너리 (Binary)
+        // 16진수는 영어로 헥스(Hex)라 부른다
+
+
+
+
+
+
 
 
 
