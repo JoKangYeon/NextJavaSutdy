@@ -18,7 +18,7 @@ public class Submit03 {
         long b = 1l;
         for(int i = 1; i <= 15; i++){
             System.out.println(i);
-            b *= i;
+            b = i * b;
         }
         System.out.println(b);
 
@@ -76,6 +76,22 @@ public class Submit03 {
             w += q;
         }
         System.out.println(w);
+
+
+
+//        for(int i = 0 ; i < text.length(); i++) {
+//            q = text.substring(9 - i , 10 - i);
+//            w += q;
+
+
+
+
+
+
+
+
+
+
 
 
     }

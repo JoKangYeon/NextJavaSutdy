@@ -185,12 +185,12 @@ public class LoopFor {
         }
         // 10부터 1까지 출력
         int num = 10;
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             System.out.println(num--);
         }
 
         // 거꾸로 for문
-        for(int i = 10; i >= 1; i--){
+        for (int i = 10; i >= 1; i--) {
             System.out.println(i);
         }
 
@@ -203,7 +203,7 @@ public class LoopFor {
         // submit02에서 했던걸 for문을 이용해서 해결
         String example = "893798333";
         int a = 0;
-        for(int i = 0; i < example.length(); i++){
+        for (int i = 0; i < example.length(); i++) {
 
             System.out.println((Integer.parseInt(example.substring(i, i + 1))));
             a += Integer.parseInt(example.substring(i, i + 1));
@@ -216,15 +216,151 @@ public class LoopFor {
         // syusyu 에서 "슈"가 몇글자 들어가있는지 세어보기
         String syu = "";
         int count = 0;
-        for(int i = 0; i < syusyu.length(); i++){
+        for (int i = 0; i < syusyu.length(); i++) {
             syu = syusyu.substring(i, i + 1);
             System.out.println(syu);
-            if(syu.equals("슈")){
+            if (syu.equals("슈")) {
                 System.out.println(syu);
                 count += 1;
             }
         }
         System.out.println(count);
+
+        System.out.println("\n=================================================\n");
+
+
+        // break 문
+        // 반복문을 종료시키는데 사용
+        // 반복횟수를 줄여서 실행속도를 향상시키는데 사용
+
+        // 내 이름을 유니코드로 표현한다면?
+        // 유니코드가 0 ~ 70000 중에서 찾기
+
+        char word = 0;
+        for (int i = 0; i < 70000; i++)
+        {
+            if (word == '조') {
+                System.out.println(i);
+                System.out.println(word);
+                // break문이 실행되면 가까운반복문(for, while)
+                // 하나를 즉시 종료한다
+                break;
+            }
+            word++;
+        }
+
+        System.out.println("\n=================================================\n");
+
+        // continue 문
+
+        // 구구단을 출력하는 중에, 너무 쉬운 1,2,3은 출력 안한다.
+
+        for(int i = 1; i <= 9; i++){
+            if(i < 4){
+                // 반복문 내에서 continue가 실행되면
+                // 바로 다음 반복문으로 넘어간다.
+                // continue 아래 코드는 실행되지 않음)
+                continue;
+            }
+            System.out.println("8 x " + i + " = " + (8*i));
+        }
+
+        System.out.println("\n=================================================\n");
+
+        // 찐 구구단(2단 ~ 9단) 출력
+        // 2 x 2 = 4 ~
+        // 9 x 9 = 81 ~
+
+        // 2중 for문 사용
+
+        for(int i = 2; i < 10; i++){
+            System.out.println(i + "단");
+            for(int k = 1; k < 10; k++){
+                System.out.println(i + " x " + k + " = " + (i * k));
+            }
+        }
+
+        /*
+            디버깅 모드
+
+            코드라인 좌측 (라인 숫자 적혀있는 부분)을 마우스 좌클릭하면
+            breakpoint가 생성된다.
+
+            생성된 breakpoint는 다시 클리갛면 제거된다.
+
+            breakpoint를 생성한 후 디버깅 모드로 실행 시
+            (상단 벌레모양 버튼 클릭 또는 [Shift + F9])
+            컴퓨터가 코드를 위에서부터 실행되다가 breakpoint가 있는 지점에
+            멈춰서 대기를 한다.
+
+            이후 하단 Debug 탭의 Step Over [F8] 를 실행하면
+            한단계씩 실행이 이루어진다.
+
+            코드를 한줄한줄 실행해보며 컴퓨터가 정확히 어디를 실행하고
+            그때마다 변수에 어떤값이 담기고 있는지 확인할 때 사용
+
+            디버깅 모드 종료하려면 중지버튼(Terminate) [Ctrl + F2]
+
+
+         */
+
+        System.out.println("\n=================================================\n");
+
+            // 트리
+            //     *
+            //    **
+            //   ***
+            //  ****
+            // *****
+
+
+        for (int i = 0; i < 5; i++) {
+            // i=0 일때, 공백이 4칸 + * 1개
+            // i=1 일때, 공백이 3칸 + * 2개
+            // i=2 일때, 공백이 2칸 + * 3개
+
+
+            String blank = "";
+            for (int k = 0; k < 4 - i; k++) {
+                blank += " ";
+            }
+
+            String stars = "";
+            for (int k = 0; k < i + 1; k++) {
+                stars += "*";
+            }
+            System.out.println(blank + stars);
+        }
+
+        // 트리
+        //     *
+        //    ***
+        //   *****
+        //  *******
+        // *********
+
+        for(int i = 0; i < 5; i++){
+            // i=0 공백이 4칸 *은 1개
+            // i=1 공백이 3칸 *은 3개
+            // i=2 공백이 2칸 *은 5개  (i에 2를 곱한 후 1을 더함)
+
+            String blank = "";
+            for(int k = 0; k < 4 - i; k++){
+                blank += " ";
+            }
+
+            String stars = "";
+            for (int j = 0; j  < (i*2)+1 ; j++){
+                stars += "*";
+
+            }
+            System.out.println(blank + stars);
+        }
+
+
+
+
+
 
 
 
