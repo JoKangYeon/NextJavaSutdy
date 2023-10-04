@@ -72,8 +72,6 @@ public class RacingGame {
             Thread.sleep(100);
 
 
-
-
         }
 
 

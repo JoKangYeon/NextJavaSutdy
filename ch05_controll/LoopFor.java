@@ -358,7 +358,38 @@ public class LoopFor {
         }
 
 
+        // 트리
+        //     *
+        //    * *
+        //   *   *
+        //  *     *
+        // *********
 
+        int number = 5; // 트리높이 - 1
+
+        for(int i = 0; i < number; i++){
+            // 공백출력
+            for(int k = 0; k < number - i; k++){
+                System.out.print(" ");
+            }
+            // 왼쪽 별 출력
+            for(int t = 0; t < 1; t++){
+                System.out.print("*");
+            }
+            for(int j =0; j < (2*i)-1; j++){
+                System.out.print(" ");
+            }
+            // 오른쪽 별 출력
+            for (int t = 0; t < 1; t++){
+                if(i>0 && i<number){
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
+        for(int i = 0; i <= 2*number; i++){
+            System.out.print("*");
+        }
 
 
 
