@@ -1,5 +1,7 @@
 package ch06_method;
 
+import java.util.Scanner;
+
 public class MethodMain {
     public static void main(String[] args) {
 
@@ -105,12 +107,141 @@ public class MethodMain {
 
         makeCard("유민", 90, 87, 79);
 
+        System.out.println("\n=========================================================\n");
+
+        // LoofWhile 에서 포켓몬 했던거를 메소드로 묶어서 실행
+
+//        playPokemon();
+
+        System.out.println("\n=========================================================\n");
+
+        // 팩토리얼을 메소드화
+        // 팩토리얼을 했었는데.. 어떤파일에서 했더라??
+        // [ Ctrl Shift F ]
+
+        System.out.println(factorial(5));
+
+        // 재귀함수
+        // 메소드 내에서 해당 메소드를 실행하는 케이스
+
+        // 콘솔창에 1부터 n까지 출력하는 메소드
+        printNum(10);
+
+        // 재귀함수 방식
+        recPrintNum(10);
+
+        System.out.println(recFactorial(5));
+
+
+
 
 
 
 
 
     }   // main 메소드 끝
+
+    public static long recFactorial(int num){
+        // 재귀함수로 팩토리얼 메소드 구현하기
+        if(num == 1){
+            return 1;
+        }
+        // num 5가 들어오면
+        return num * recFactorial(num - 1);
+        // return 5 * recFactorial (4)
+        // return 5 * 4 * recFactorial (3)
+        // return 5 * 4 * 3 * recFactorial (2)
+        // return 5 * 4 * 3 * 2 * recFactorial (1)
+        // return 5 * 4 * 3 * 2 * 1
+
+
+
+
+    }
+
+
+    public static void recPrintNum(int num){
+        System.out.println(num); // 10
+        // 자기자신을 호출 (= 재귀함수) -> 함수내에서 같은함수 사용
+        // 무한 반복 실행을 주의
+        if(num == 1){
+            // 더이상 실행 안함
+            return; // 메소드 즉시 종료
+        }
+
+        recPrintNum(num - 1); // 파라미터에 9
+    }
+
+
+    public static void printNum(int num){
+        for(int i = 1; i <= num; i++){
+            System.out.println(i);
+        }
+    }
+
+    public static long factorial(int n){
+        long num = n;
+        for(int i = 1; i <= n; i++){
+            num = i * num;
+        }
+        return num;
+    }
+
+    public static void playPokemon(){
+        Scanner scan = new Scanner(System.in);
+
+        int hp = 100;
+        // 이 while문의 이름이 outer가 됨
+        outer:while(true){
+            System.out.println("야생의 피카츄를 만났습니다.");
+            System.out.println("행동을 선택해주세요");
+            System.out.println("1. 공격 | 2. 도망");
+            System.out.println(">>> ");
+
+            int command = Integer.parseInt(scan.nextLine());
+
+            if(command == 1){
+                // TODO 공격
+                while(true){
+                    System.out.println("공격 방법 선택");
+                    System.out.println("1. 몸통박치기 | 2. 하이드로펌프 | 3. 취소");
+                    System.out.println(">>>");
+
+                    int attack = Integer.parseInt(scan.nextLine());
+
+                    if(attack == 1){
+                        System.out.println("몸통 박치기 시전");
+                        hp -= 20;
+                    }else if(attack == 2){
+                        System.out.println("하이드로펌프 시전");
+                        hp -= 40;
+                    }else if(attack == 3){
+                        // 취소
+                        // 가까운 반복문 1개 즉시 종료
+                        // 내부 while만 종료된다.
+                        break;
+                    }
+
+                    if(hp <= 0){
+                        System.out.println("피카츄를 잡았다~!!");
+                        // 외부 while문을 종료 시키려면??
+                        // System.exit(0); // 프로그램 종료
+                        // 외부 while문에 네임태그 설정
+                        // break outer; // 해당 이름을 가진 while문 종료
+                        // 리턴타입이 void 이더라도 return은 사용이 가능하다.
+                        //메소드 내에서 return이 실행되면 해당 메소드는 즉시 종료된다.
+                        return;
+                    }
+
+                }
+            }else if(command == 2) {
+                System.out.println("메다닥 도망갔습니다.");
+                break;
+            }else{
+                System.out.println("잘못 입력하셨습니다.");
+            }
+        }
+    }
 
     public static void print(String word){
         System.out.println(word);

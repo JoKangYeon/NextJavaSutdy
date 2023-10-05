@@ -4,7 +4,7 @@ public class Submit03 {
 
     public static void main(String[] args) {
 
-        // for문을 사용해서 10팩토리얼의 값을 출력해주세요
+        // for문을 사용해서 10 팩토리얼의 값을 출력해주세요 팩토리얼
 
         int a = 1;
         for(int i = 1; i <= 10; i++){
