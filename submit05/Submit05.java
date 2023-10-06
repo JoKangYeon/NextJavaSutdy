@@ -108,7 +108,28 @@ public class Submit05 {
     }
 
 
+ /*   public static void makeTriangle(int num) {
+        // 공백 트리
+        //     *
+        //    * *
+        //   *   *
+        //  *     *
+        // *********
 
+         // 트리높이 - 맨밑줄 (1)
+
+        for (int i = 0; i < num; i++) {
+            String leftBlank = "";
+            for (int k = 0; k < num - i; k++) {
+                System.out.print(" ");
+            }if(i==0){
+                //맨 위층
+                System.out.println(leftBlank);
+            }else if(i == num-1){
+
+            }
+
+        }*/
 
 
 
