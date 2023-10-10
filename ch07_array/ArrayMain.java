@@ -308,23 +308,81 @@ public class ArrayMain {
         printArray(numArray);
 
 
+        // 버블정렬 (알고리즘)
+        int[] intArr = {3, 5, 8, 2, 4, 1};
 
+        for(int i = 0; i < intArr.length - 1; i++){
+            // 왼쪽이 오른쪽보다 큰지 비교
+            if(intArr[i] > intArr[i+1]){
+                // 자리바꾼다,
+                int tmp = intArr[i];
+                intArr[i] = intArr[i+1];
+                intArr[i+1] = tmp;
+            }
+        }
+        printArray(intArr);
 
+        for(int i = 0; i < intArr.length - 1; i++){
+            // 왼쪽이 오른쪽보다 큰지 비교
+            if(intArr[i] > intArr[i+1]){
+                // 자리바꾼다,
+                int tmp = intArr[i];
+                intArr[i] = intArr[i+1];
+                intArr[i+1] = tmp;
+            }
+        }
+        printArray(intArr);
 
+        for(int k = 0; k < intArray.length - 1; k++){
+            for(int i = 0; i < intArr.length - 1; i++){
+                // 왼쪽이 오른쪽보다 큰지 비교 >
+                // 왼쪽이 오른쪽보다 작은지 비교 <
+                if(intArr[i] > intArr[i+1]){
+                    // 자리바꾼다,
+                    int tmp = intArr[i];
+                    intArr[i] = intArr[i+1];
+                    intArr[i+1] = tmp;
+                }
+            }
+        }
+        printArray(intArr); // 오름차순 정렬
 
+        System.out.println("\n======================================================\n");
 
+        // 다차원 배열
+        // 일차원 배열
+        int[] oneDirArr = {1, 2, 3};
+        // 이차원 배열
+        int[][] twoDirArr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        // 1 2 3
+        // 4 5 6
+        // 7 8 9
 
+        // 2행 {4, 5, 6} 꺼내기
+        printArray(twoDirArr[1]);
 
+        // 3행 2열 {8}
+        System.out.println(twoDirArr[2][1]);
 
+        // 3차원 배열
+        int [][][] threeDirArr = {{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}},
+                                  {{10, 11, 12}, {13, 14, 15}, {16, 17, 18}},
+                                  {{19, 20, 21}, {22, 23, 24}, {25, 26, 27}}};
 
+        // 0층
+        // 1 2 3
+        // 4 5 6
+        // 7 8  9
+        // 1층
+        // 10 11 12
+        // 13 14 15
+        // 16 17 18
 
+        System.out.println(threeDirArr[1][0][0]);
 
-
-
-
-        // 정렬 (알고리즘)
-
-
+        // 로또방 가서 자동 5천원 구매
+        // 로또 5줄짜리 나옴
+        // 2차원 배열 이용
 
 
 
