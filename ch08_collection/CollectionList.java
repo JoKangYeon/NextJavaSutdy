@@ -1,8 +1,10 @@
 package ch08_collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class CollectionList {
     public static void main(String[] args) {
@@ -144,6 +146,87 @@ public class CollectionList {
         Collections.sort(intList, Collections.reverseOrder());
         intList.sort(Collections.reverseOrder());
         System.out.println(intList);
+
+        // 버블정렬(알고리즘)
+
+        int[] intArr = {3, 5, 8, 4, 1, 2};
+        ArrayList<Integer> numList = new ArrayList<>( Arrays.asList(3, 5, 8, 4, 1, 2) );
+        System.out.println(numList);
+
+        for(int k = 0; k < numList.size() - 1; k++){
+            for(int i = 0; i < numList.size() - 1; i++){
+                // 왼쪽이 오른쪽보다 큰지 비교 >
+                // 왼쪽이 오른쪽보다 작은지 비교 <
+                if(numList.get(i) > numList.get(i+1)){
+                    // 자리바꾼다,
+                    int tmp = numList.get(i);
+                    numList.set(i, numList.get(i+1));
+                    numList.set(numList.get(i+1), tmp);
+                }
+            }
+        }
+        System.out.println(numList);
+
+        // 리스트의 복사
+        System.out.println(students);
+
+        ArrayList<String> copyStu = students;
+        System.out.println(copyStu);
+
+        copyStu.add("6. 민재");
+        System.out.println(copyStu);
+        System.out.println(students);
+
+        // 리스트 복사 1
+        ArrayList<String> copyList = new ArrayList<>();
+
+        // students의 모든 요소가 copyList에 담긴다.
+        copyList.addAll(students);
+        System.out.println(copyList);
+
+        // 리스트 복사 2
+        ArrayList<String> copyList2 = new ArrayList<>(students);
+
+        // 리스트 복사 3
+        ArrayList<String> copyList3 = new ArrayList<>();
+        for(int i = 0; i < students.size(); i++){
+            copyList3.add(students.get(i));
+        }
+
+        System.out.println("\n================================\n");
+
+        // advanced for 향상된 for문
+        // (특정 프로그래밍 언어에서는 이를 foreach문이라 한다)
+        for(int i = 0; i < students.size(); i++){
+            System.out.println(students.get(i));
+        }
+
+        // ArrayList<String>
+        for( String stu : students ){
+            System.out.println(stu);
+        }
+
+        // 인덱스가 존재하는 List 에서는 향상된 for문이 그렇게 크게
+        // 메리트가 있지는 않다. 그냥 딱 코드 살짝 압축되는 정도
+
+        // 자바의 forEach문
+        students.forEach(new Consumer<String>(){
+            @Override
+            public void accept(String s) {
+                System.out.println(s);
+            }
+        });
+
+        // -> 람다식 표현. 코드를 보다 간결하게 작성할 수 있다.
+        // 자바스크립트는 => 를 쓴다.
+        students.forEach(stu -> System.out.println(stu));
+
+        // 명령어가 2줄 이상인 경우 중괄호 사용
+        students.forEach(stu -> {
+            System.out.println(stu);
+            System.out.println(stu);
+        });
+
 
 
 

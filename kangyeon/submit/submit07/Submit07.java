@@ -5,32 +5,57 @@ import java.util.Collections;
 
 public class Submit07 {
     public static void main(String[] args) {
+
+        // remove 사용
         // 정수를 담을 수 있는 ArrayList 선언
         ArrayList<Integer> intList = new ArrayList<>();
 
         // 랜덤숫자 10번 담기
         // = 랜덤숫자를 생성하면서 담는행동 10번 반복
-        for(int i = 0; i < 10; i++){
-           intList.add((int)(Math.random() * 20) + 10);
+       /* for(int i = 0; i < 10; i++){
+            // (int)(Math.random() * (b - a + 1) + a : a ~ b 사이의 정수
+           intList.add((int)(Math.random() * 11) + 10);
         }
         System.out.println(intList);
 
-        ArrayList<Integer> numList = new ArrayList<>();
-        for(int i = 0; i < intList.size()-1; i++){
-            for(int k = 0; k < i; k++){
+        System.out.println("\n=====================================================\n");
+
+        for(int i = 0; i < intList.size(); i++){
+            for(int k = intList.size()-1; k > i; k--){
                 if(intList.get(i) == intList.get(k)){
                     intList.remove(k);
-                    i--;
                 }
             }
         }
+        System.out.println(intList);*/
+
+        ArrayList<Integer> newList = new ArrayList<>();
+
+        for(int i = 0; i < 10; i++){
+            // (int)(Math.random() * (b - a + 1) + a : a ~ b 사이의 정수
+            intList.add((int)(Math.random() * 11) + 10);
+        }
         System.out.println(intList);
 
-        Collections.sort(intList);
-        System.out.println(intList);
+        //intList를 순회하는 for문
+        for(int i = 0; i < intList.size(); i++){
 
-        intList.sort(Collections.reverseOrder());
-        System.out.println(intList);
+            // newList에 intList의 값을 옮긴다.
+            // 값을 옮길때 newList 안에 intList.get(i)의 값이 존재하는지 체크
+            // 존재하지 않을때만 옮긴다.
+            if(newList.contains(intList.get(i)) == false){
+                // 값이 존재함
+                newList.add(intList.get(i));
+            }
+        }
+        System.out.println(newList);
+
+
+        Collections.sort(newList);
+        System.out.println(newList);
+
+        newList.sort(Collections.reverseOrder());
+        System.out.println(newList);
 
 
 
@@ -75,13 +100,36 @@ public class Submit07 {
             evyWishList.add(wifeWishList.get(i));
         }
         for(int i = 0; i < husWishList.size(); i++){
-                if(evyWishList.contains(husWishList.get(i))){
+                if(!evyWishList.contains(husWishList.get(i))){
                     evyWishList.add(husWishList.get(i));
-                    break;
                 }
         }
 
         System.out.println(evyWishList);
+
+        ArrayList<String> wantAll = new ArrayList<>();
+        for(int i = 0; i < wantAll.size(); i++){
+            wantAll.add(wifeWishList.get(i));
+        }
+
+        // wantAll.addAll(wifeList); 와 같다.
+        for(int i = 0; i < husWishList.size(); i++){
+            husWishList.get(i);
+            // husList.get(i) 의 값이 wantAll 안에 없어야 추가
+            boolean isContain = false;
+            for(int k = 0; k < wantAll.size(); k++){
+                if(wantAll.get(k).equals(husWishList) == true){
+                    isContain = true;
+                }
+            }
+            // isContain 값이 false일때 husList.get(i) 를 wantAll에 추가
+            if(isContain == false){
+                wantAll.add(husWishList.get(i));
+            }
+        }
+        System.out.println(wantAll);
+
+
 
 
 
