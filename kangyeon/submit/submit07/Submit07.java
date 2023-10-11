@@ -94,7 +94,7 @@ public class Submit07 {
 
 //        2. 사고 싶은걸 다 산다고 했을때의 구매 목록을 새로운 리스트에 담아 콘솔에 출력해주세요(합집합)
 
-        ArrayList<String> evyWishList = new ArrayList<>();
+        /*ArrayList<String> evyWishList = new ArrayList<>();
 
         for(int i = 0; i < wifeWishList.size(); i++){
             evyWishList.add(wifeWishList.get(i));
@@ -105,20 +105,17 @@ public class Submit07 {
                 }
         }
 
-        System.out.println(evyWishList);
+        System.out.println(evyWishList);*/
 
-        ArrayList<String> wantAll = new ArrayList<>();
-        for(int i = 0; i < wantAll.size(); i++){
-            wantAll.add(wifeWishList.get(i));
-        }
+        ArrayList<String> wantAll = new ArrayList<>(wifeWishList);
+        System.out.println(wantAll); // wantAll.addAll(wifeList); 와 같다.
 
-        // wantAll.addAll(wifeList); 와 같다.
         for(int i = 0; i < husWishList.size(); i++){
             husWishList.get(i);
             // husList.get(i) 의 값이 wantAll 안에 없어야 추가
             boolean isContain = false;
             for(int k = 0; k < wantAll.size(); k++){
-                if(wantAll.get(k).equals(husWishList) == true){
+                if(wantAll.get(k) == (husWishList.get(i))){
                     isContain = true;
                 }
             }
@@ -127,6 +124,7 @@ public class Submit07 {
                 wantAll.add(husWishList.get(i));
             }
         }
+        System.out.println(husWishList);
         System.out.println(wantAll);
 
 
