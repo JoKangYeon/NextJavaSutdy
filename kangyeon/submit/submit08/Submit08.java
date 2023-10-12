@@ -13,13 +13,13 @@ public class Submit08 {
         HashSet<String> hashSet = new HashSet<String>();
         int a = 0;
 
-        while(true){
-            for(int i = 0; i < 6; i++){
-                int rand = (int)(Math.random() * 45 +1);
+        while (true) {
+            for (int i = 0; i < 6; i++) {
+                int rand = (int) (Math.random() * 45 + 1);
                 String word = rand + "";
                 hashSet.add(word);
             }
-            if(hashSet.size() == 6){
+            if (hashSet.size() == 6) {
                 System.out.println(hashSet);
                 break;
             }
@@ -40,37 +40,31 @@ public class Submit08 {
 
         Scanner scan = new Scanner(System.in);
 
-  /*     while(ture)
+        while (true) {
 
-        System.out.println("아이디를 입력해주세요");
-        System.out.println(">>> ");
-        String inputId = scan.nextLine();
+            System.out.println("아이디를 입력해주세요");
+            System.out.println(">>> ");
+            String inputId = scan.nextLine();
 
-        if(infoMap.containsKey(inputId)){
-            if(infoMap.get(inputId) == inputPass)
+            if (inputId.equals("q") || inputId.equals("exit")) {
+                break;
+            }
+
             System.out.println("비밀번호를 입력해주세요");
             System.out.println(">>> ");
             String inputPass = scan.nextLine();
-            infoMap.get(inputPass)
 
-
-
-        }else if(!infoMap.containsKey(inputId)){
-            System.out.println("비밀번호를 입력해주세요");
-            System.out.println(">>> ");
-            System.out.println("존재하지 않는 아이디입니다.");
+            if (infoMap.containsKey(inputId)) {
+                if (infoMap.get(inputId).equals(inputPass)) {
+                    System.out.println("로그인 성공");
+                    break;
+                } else if (!infoMap.get(inputId).equals(inputPass)) {
+                    System.out.println("비밀 번호가 틀렸습니다.");
+                }
+            } else {
+                System.out.println("존재하지 않는 아이디입니다.");
+            }
         }
-*/
-
-
-
-
-
-
-
-
-
-
 
 
     }
