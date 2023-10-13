@@ -1,5 +1,7 @@
 package ch09_class.nextit;
 
+import ch09_class.school.Student;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -272,28 +274,6 @@ public class NextitMain {
         }
 
         Collections.sort(stulist, (stuA, stuB) -> stuB.level - stuA.level);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
