@@ -52,15 +52,22 @@ public class MemberMain {
                 // Member 객체가 존재하는지 체크
                 // 존재하면 "로그인 성공, (이름)님 환영합니다!!"
                 // 존재하지 않으면 "아이디 혹은 비밀번호를 잘못 입력하셨습니다."
+                boolean isLogin = false;
                 for(int i = 0; i < memList.size(); i++){
                     Member temp = memList.get(i);
-                    if((temp.getId()).equals(inputId) && temp.getPw().equals(inputPw)){
-                      // 로그인 성공
+                    if((temp.getId()).equals(inputId) && temp.getPw().equals(inputPw)) {
+                        // 로그인 성공
+                        // 한번도 if문이 실행되지않을경우 > 로그인실패
+                        isLogin = true;
                         System.out.println("로그인 성공!! " + temp.getName() + "님 환영합니다.");
                         break;
-                    }else if(!(temp.getId()).equals(inputId) && temp.getPw().equals(inputPw)){
-                        System.out.println("아이디 혹은 비밀번호를 잘못입력하셨습니다.");
                     }
+                    if(isLogin == false){
+                        System.out.println("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
+                    }
+//                    }else if(i == memList.size()-1){
+//                        System.out.println("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
+//                    }
                 }
 
             }else if(command == 3) {
