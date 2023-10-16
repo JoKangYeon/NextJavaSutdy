@@ -1,0 +1,355 @@
+-- 로그인 기능 --
+SELECT * 
+FROM MEMBER
+WHERE member_id = 'admin'
+AND password = 'q1w2e3';
+
+UPDATE MEMBER
+SET mem_login_yn = 'Y'
+WHERE member_id = 'admin';
+
+-- 회원(홍길동) 아이디 찾기 --
+SELECT MEMBER_ID 
+FROM MEMBER
+WHERE MEMBER_NAME = '홍길동'
+AND EMAIL = 'bebabi@naver.com';
+
+-- MEM01_LOGIN03 회원(홍길동) 비밀번호 찾기 --
+SELECT PASSWORD 
+FROM MEMBER
+WHERE MEMBER_ID = 'a001'
+AND EMAIL = 'bebabi@naver.com';
+
+
+-- MEM02_SIGNUP01   회원가입 --  
+INSERT INTO MEMBER (
+	  member_no 
+	, member_id 
+	, member_name 
+	, password 
+	, member_birth 
+	, phone 
+	, gender 
+	, create_date 
+	, member_access 
+	, mem_login_yn
+	, member_del_yn 
+) VALUES (
+	  SEQ_MEMBER_NO.nextval
+	, 'b001'
+	, '신사임당'
+	, '1q2w3e4r'
+	, '1997-11-15'
+	, '01012345678'
+	, (SELECT gender_code FROM GENDER_INFO WHERE gender_name = '여자')
+	, SYSDATE
+	, (SELECT access_code FROM ACCESS_INFO WHERE access_name = '사용자')
+	, 'N'
+	, 'N'
+);
+
+-- MEM02_SIGNUP02 회원가입시 아이디 중복체크 --
+SELECT *
+FROM MEMBER
+WHERE MEMBER_ID = '123123123';
+
+
+
+-- MEM03_UPDATE01 회원 정보 수정 --
+UPDATE MEMBER
+SET password = '1234a'
+WHERE member_id = 'b001'
+AND mem_login_yn = 'Y';
+
+
+
+-- MEM03_DELETE01 회원 탈퇴 --
+DELETE 
+FROM MEMBER
+WHERE member_id = 'b001'
+AND mem_login_yn = 'Y';
+
+
+-- MEM04_LOGOUT01 로그아웃 --
+UPDATE member
+SET mem_login_yn = 'N'
+WHERE member_id = 'b001';
+
+
+-- CS01_REQUEST01 교환 접수 --
+-- 접수를 하려면 테이블은 mem_request다 
+-- 접수를 하려면 거래내역이 있어야 한다. 
+-- 거래내역 테이블은 sale_history테이블이다.
+-- 현재 로그인 한 회원의 아이디는 b001이다.
+INSERT INTO MEM_REQUEST (
+	  mr_no
+	, mem_id
+	, mr_code
+	, mr_state
+	, sale_history
+) VALUES (
+	  SEQ_MR_NO.NEXTVAL
+	, (SELECT member_id FROM MEMBER WHERE member_id = 'b001')
+	, (SELECT request_code FROM REQUEST_INFO WHERE request_name = '교환')
+	, (SELECT state_code FROM STATE_INFO WHERE state_name = '접수')
+	, (SELECT receipt_no FROM SALE_HISTORY WHERE receipt_no = '88202310128')
+);
+
+
+-- CB01_INSERT01 고객 불만 게시 글 작성 -- 
+-- 회원이 불만 게시 글 작성 할 수 있다.
+-- 현재 로그인 한 회원은 b001 
+INSERT INTO CUSTOMER_BOARD (
+	  cb_no
+	, cb_title
+	, cb_content
+	, cb_writer
+	, cb_create_date
+	, cb_del_yn
+	, cb_state
+) VALUES (
+	  seq_cb_no.nextval
+	, '서비스가........'
+	, '최악이에요.'
+	, 'b001'
+	, sysdate
+	, 'N'
+	, (SELECT state_code FROM STATE_INFO WHERE state_name = '접수')
+);
+
+
+
+
+-- CB02_UPDATE01  게시글 수정(제목) --
+-- 현재 로그인 아이디는 b001 
+UPDATE CUSTOMER_BOARD
+SET cb_title = '인상이 안좋아요'
+WHERE cb_no = '9';
+
+
+
+
+-- CB02_UPDATE01  게시글 수정(내용) --
+-- 현재 로그인 상태임(ex 로그인 아이디는 b001) -- 
+UPDATE CUSTOMER_BOARD
+SET cb_content = '푸드코트 맛이 없어요'
+WHERE cb_no = '9'
+AND cb_writer = 'b001';
+
+
+-- CB03_DELETE01  게시글 삭제 --
+-- 현재 로그인 상태임 -- 
+-- 게시글 delete --
+DELETE 
+FROM CUSTOMER_BOARD
+WHERE cb_no = '9'
+AND cb_writer = 'b001';
+
+-- 게시글 update --
+UPDATE CUSTOMER_BOARD
+SET cb_del_yn = 'N'
+WHERE cb_no = '2'
+AND cb_writer = 'b001';
+
+
+-- CB04_SELETE01  게시글 상세(detail)조회 -- 
+SELECT CB_TITLE , CB_CONTENT , CB_WRITER , CB_CREATE_DATE 
+FROM CUSTOMER_BOARD
+WHERE CB_DEL_YN = 'N'
+AND CB_NO = 2;
+
+
+
+-- AD01_MEM_UPDATE01 관리자의 회원권한 수정 --
+-- 현재 로그인 아이디는 admin
+SELECT *
+FROM "MEMBER" m 
+WHERE MEMBER_ID = 'admin'
+AND MEMBER_ACCESS = 'AD';
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+UPDATE MEMBER 
+SET member_access = 'CL'
+WHERE member_id = 'b001';
+
+
+
+-- AD01_MEM_DELETE02 관리자의 회원 탈퇴 --
+-- 현재 로그인 아이디는 admin
+SELECT *
+FROM "MEMBER" m 
+WHERE MEMBER_ID = 'admin'
+AND MEMBER_ACCESS = 'AD';
+
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+UPDATE member
+SET member_del_yn = 'Y'
+WHERE member_id = 'b001';
+
+DELETE 
+FROM MEMBER
+WHERE member_id = 'b001';
+
+
+
+-- AD02_CS_RESPONSE01 관리자의 사용자 교환 처리 관리 --
+-- 현재 로그인 아이디는 admin
+SELECT *
+FROM "MEMBER" m 
+WHERE MEMBER_ID = 'admin'
+AND MEMBER_ACCESS = 'AD';
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+UPDATE MEM_REQUEST 
+SET mr_state = (SELECT state_code FROM STATE_INFO WHERE state_name = '완료')
+WHERE mr_no = 2;
+
+-- state_name = '처리중' -> mr_state = 'P' 
+-- state_name = '완료' -> mr_state = 'C'
+
+
+-- AD02_CS_RESPONSE02 관리자의 사용자 환불 처리 관리 --
+-- 현재 로그인 아이디는 admin
+SELECT *
+FROM "MEMBER" m 
+WHERE MEMBER_ID = 'admin'
+AND MEMBER_ACCESS = 'AD';
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+UPDATE MEM_REQUEST 
+SET mr_state = (SELECT state_code FROM STATE_INFO WHERE state_name = '처리중')
+WHERE mr_no = 3;
+
+-- state_name = '처리중' -> mr_state = 'P' 
+-- state_name = '완료' -> mr_state = 'C'
+
+
+
+-- AD03_CB_INSERT01 관리자 게시글 작성 -- ex)공지사항
+-- 현재 로그인 아이디는 admin
+SELECT *
+FROM "MEMBER" m 
+WHERE MEMBER_ID = 'admin'
+AND MEMBER_ACCESS = 'AD';
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+INSERT INTO CUSTOMER_BOARD (
+	  cb_no
+	, cb_title
+	, cb_content
+	, cb_writer
+	, cb_create_date
+	, cb_del_yn
+	, cb_state
+) VALUES (
+	  seq_cb_no.nextval
+	, '안녕하세요 e마트 입니다.'
+	, '잘 좀 봐주세요.'
+	, 'admin'
+	, sysdate
+	, 'N'
+	, null
+);
+
+
+
+
+
+
+-------------------------------------------------------
+-- AD04_CB_UPDATE01  게시글 수정(내용) --
+-- 현재 로그인 아이디는 admin
+SELECT MEMBER_ID
+FROM MEMBER 
+WHERE MEMBER_ID = 'admin'
+AND MEM_LOGIN_YN = 'Y'
+AND MEMBER_ACCESS = 'AD';
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+UPDATE CUSTOMER_BOARD
+SET cb_title = '안녕하세요 홈플러스입니다.'
+WHERE cb_no = '9'
+AND cb_writer = 'admin';
+
+
+-- AD05_CB_DELETE01  게시글 삭제 --
+-- 현재 로그인 아이디는 admin
+-- 게시글 delete --
+SELECT MEMBER_ID
+FROM MEMBER 
+WHERE MEMBER_ID = 'admin'
+AND MEM_LOGIN_YN = 'Y'
+AND MEMBER_ACCESS = 'AD';
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+-- 게시글 번호로 뭐든 삭제 가능
+DELETE 
+FROM CUSTOMER_BOARD
+WHERE cb_no = 2;
+
+-- 게시글 update --
+UPDATE CUSTOMER_BOARD
+SET cb_del_yn = 'Y'
+WHERE cb_no = '2';
+
+
+-- AD06_CB_SELETE01  게시글 상세(detail)조회 -- 
+-- 로그인이 되어 있는 상태여야 상세 조회 가능 --
+SELECT CB_TITLE , CB_CONTENT , CB_WRITER , CB_CREATE_DATE 
+FROM CUSTOMER_BOARD
+WHERE CB_DEL_YN = 'N'
+AND CB_NO = 2;
+
+
+
+-- 관리자 --
+-- AD07_INSERT01  상품 등록 --
+SELECT MEMBER_ID
+FROM MEMBER 
+WHERE MEMBER_ID = 'admin'
+AND MEM_LOGIN_YN = 'Y'
+AND MEMBER_ACCESS = 'AD';
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+INSERT INTO PRODUCT_INFO (
+	  prod_no
+	, prod_name
+	, prod_price
+	, prod_cnt
+) VALUES (
+	  seq_prod_no.nextval
+	, '꼬북칩'
+	, 1200
+	, 1
+);
+
+
+
+-- 관리자 --
+-- AD07_UPDATE01  상품 정보 수정 --
+SELECT MEMBER_ID
+FROM MEMBER 
+WHERE MEMBER_ID = 'admin'
+AND MEM_LOGIN_YN = 'Y'
+AND MEMBER_ACCESS = 'AD';
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+UPDATE PRODUCT_INFO
+SET prod_price = 1500
+WHERE prod_name = '썬칩';
+
+
+
+-- 관리자 --
+-- AD07_DELETE01  상품 정보 삭제 --
+SELECT MEMBER_ID
+FROM MEMBER 
+WHERE MEMBER_ID = 'admin'
+AND MEM_LOGIN_YN = 'Y'
+AND MEMBER_ACCESS = 'AD';
+
+-- 위 쿼리로 조회 데이터가 있으면 아래의 쿼리 실행 가능
+DELETE 
+FROM PRODUCT_INFO pi2 
+WHERE prod_name = '꼬북칩';
