@@ -1,36 +1,29 @@
 package kangyeon.submit.submit09.q01;
 
+// lombok 라이브러리를 설치한다면? -> 아래문구를 입력하면 자동으로 되긴함
+//@Constructor
+//@getter
+//@setter
+
 public class Product {
 
-    private static String prodName;
-    private static int prodPrice;
+    String prodName;    // 제품명
+    int prodPrice;      // 제품 가격
 
 
     @Override
     public String toString() {
-        return "name=" + prodName + ", "
-                + "price=" + prodPrice;
+        return "Product[" + "name=" + prodName + ", "
+                + "price=" + prodPrice + ']';
     }
 
 
-    public Product(String prodName, int prodPrice) {
+    Product(String prodName, int prodPrice) {
         this.prodName = prodName;
         this.prodPrice = prodPrice;
     }
 
-    public static String getProdName() {
-        return prodName;
-    }
+    Product(){
 
-    public void setProdName(String prodName) {
-        this.prodName = prodName;
-    }
-
-    public static int getProdPrice() {
-        return prodPrice;
-    }
-
-    public void setProdPrice(int prodPrice) {
-        this.prodPrice = prodPrice;
     }
 }

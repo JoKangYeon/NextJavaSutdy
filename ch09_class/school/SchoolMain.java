@@ -92,10 +92,7 @@ public class SchoolMain {
         System.out.println("\n===========================\n");
 
 
-//        Collections.sort(stuList,(stuA, stuB) -> 삼합연산자;
-//        Collections.sort(stuList,(stuA, stuB) -> {
-//            return stuB.getAvg() - stuA.getAvg();
-//        });
+        Collections.sort(stuList, (stuA, stuB) -> (stuA.getAvg() - stuB.getAvg() < 0) ? -1 : 1);
         Collections.sort(stuList, new Comparator<Student>() {
             @Override
             public  int compare(Student stuA, Student stuB){

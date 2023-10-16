@@ -20,4 +20,14 @@ public class UtilClass {
         return (double)(Math.round(num * random)) / random;
     }
 
+    /**
+     * a부터 b 사이의 랜덤 정수를 리턴
+     * @param a
+     * @param b
+     * @return
+     */
+    public static int makeRandom(int a, int b){
+        return (int)(Math.random() * (b - a + 1)) + a;
+    }
+
 }
