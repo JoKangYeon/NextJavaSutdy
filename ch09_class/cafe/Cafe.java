@@ -7,10 +7,12 @@ public class Cafe {
     private String name;                // 카페명
     private ArrayList<Coffee> menu;     // 음료 목록
 
+
     public Cafe(String name) {
         this.name = name;
-        menu = new ArrayList<>();
+        menu = new ArrayList<>();   // 입력값을 받기 까다로워서? 따로 받는걸로 추정
     }
+
 
     // 메뉴에 커피 객체 추가 메소드
     public void addCoffee(Coffee coffee){

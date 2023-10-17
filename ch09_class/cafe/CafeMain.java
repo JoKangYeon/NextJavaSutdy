@@ -13,6 +13,9 @@ public class CafeMain {
         conte.addCoffee(new Coffee("카페라떼", 4000));
         conte.addCoffee(new Coffee("레몬티", 5000));
 
+        System.out.println(conte.getMenu());
+
+
 
         Cafe starbucks = new Cafe("스타벅스");
 
@@ -21,7 +24,7 @@ public class CafeMain {
         starbucks.addCoffee(new Coffee("녹차라떼", 7000));
 
         Scanner scan = new Scanner(System.in);
-
+/*
         while(true){
             System.out.println("행동을 선택해주세요.");
             System.out.println("1. 스타벅스 | 2. 콘테 | 3. 사무실 복귀..");
@@ -47,27 +50,7 @@ public class CafeMain {
                 System.out.println("사무실로 복귀합니다..");
                 break;
             }
-
-
-
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }*/
 
 
 

@@ -61,13 +61,13 @@ public class MemberMain {
                         isLogin = true;
                         System.out.println("로그인 성공!! " + temp.getName() + "님 환영합니다.");
                         break;
-                    }
-                    if(isLogin == false){
+//                    }
+//                    if(isLogin == false){
+//                        System.out.println("아이디 혹은 비밀번호를 잘못 입력하셨습니다."); // for문 바깥쪽에 선언해야함
+//                    }
+                    }else if(i == memList.size()-1){
                         System.out.println("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
                     }
-//                    }else if(i == memList.size()-1){
-//                        System.out.println("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
-//                    }
                 }
 
             }else if(command == 3) {
