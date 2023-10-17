@@ -1,37 +1,38 @@
 package kangyeon.submit.submit10;
 
 public class Book {
-    private String no;          /* 도서 번호 */
+    private int no;          /* 도서 번호 */
     private String title;       /* 도서 제목 */
-    private boolean False;      /* 대여 여부 */
+    private boolean borrow;      /* 대여 여부 */
 
     public Book() {
     }
 
-    public Book(String title) {
+    public Book(int no, String title) {
+        this.no = no;
         this.title = title;
     }
 
-    public Book(String no, String title, boolean aFalse) {
+    public Book(int no, String title, boolean aFalse) {
         this.no = no;
         this.title = title;
-        False = aFalse;
+        this.borrow = aFalse;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "no='" + no + '\'' +
-                ", title='" + title + '\'' +
-                ", False=" + False +
-                '}';
+        return "Book[" +
+                "도서번호='" + no + '\'' +
+                ", 도서제목='" + title + '\'' +
+                ", 대여여부=" + borrow +
+                ']';
     }
 
-    public String getNo() {
+    public int getNo() {
         return no;
     }
 
-    public void setNo(String no) {
+    public void setNo(int no) {
         this.no = no;
     }
 
@@ -44,11 +45,11 @@ public class Book {
     }
 
     public boolean isFalse() {
-        return False;
+        return borrow;
     }
 
     public void setFalse(boolean aFalse) {
-        False = aFalse;
+        borrow = aFalse;
     }
 
 
