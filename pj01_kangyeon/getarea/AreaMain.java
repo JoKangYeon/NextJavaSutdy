@@ -30,15 +30,18 @@ public class AreaMain {
                     if (play == 1) {
                         // 점령하기
                         if (playerTimne == true) {
+                            System.out.println("플레이어 1 차례입니다.");
                             System.out.println("점령할 번호를 입력해주세요.");
                             int attack = Integer.parseInt(scan.nextLine());
+                            areas.areaList.get(attack-1).setShape("1");
                             playerTimne = false;
                             System.out.println(attack + "을 점령하였습니다.");
                             player = "player2";
                         } else if (playerTimne == false) {
+                            System.out.println("플레이어 2 차례입니다.");
                             System.out.println("점령할 번호를 입력해주세요.");
                             int attack = Integer.parseInt(scan.nextLine());
-
+                            areas.areaList.get(attack-1).setShape("2");
                             playerTimne = true;
                             System.out.println(attack + "을 점령하였습니다.");
                             player = "player1";
