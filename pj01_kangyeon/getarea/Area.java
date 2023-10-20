@@ -32,12 +32,26 @@ public class Area {
 
     @Override
     public String toString() {
-        return "Area{" +
-                "areaNum=" + areaNum +
-                ", mine=" + mine +
-                ", shape='" + shape + '\'' +
-                '}';
+        String state = "점령지번호: " + areaNum +
+                ", 오너: " + owner +
+                ", 지뢰여부: 안전" +
+                ", 지역모양: " + shape;
+        if(mine == true){
+            state = "점령지번호: " + areaNum +
+                    ", 오너: " + owner +
+                    ", 지뢰여부: 지뢰" +
+                    ", 지역모양: " + shape;
+        }
+        return state;
     }
+
+    /*public String toMakeString() {
+        String state = green + "⏹" + exit;
+        if(mine == true){
+            state = red +"☢" +exit;
+        }
+        return state;
+    }*/
 
     public int getAreaNum() {
         return areaNum;
@@ -70,4 +84,18 @@ public class Area {
     public void setShape(String shape) {
         this.shape = shape;
     }
+
+//    public static final String black    = "\u001B[30m" ;
+//    public static final String red      = "\u001B[31m" ;
+//    public static final String green    = "\u001B[32m" ;
+//    public static final String yellow   = "\u001B[33m" ;
+//    public static final String blue     = "\u001B[34m" ;
+//    public static final String purple   = "\u001B[35m" ;
+//    public static final String cyan     = "\u001B[36m" ;
+//    public static final String white     = "\u001B[37m" ;
+//
+//    public static final String exit     = "\u001B[0m" ;
+
+
+
 }
