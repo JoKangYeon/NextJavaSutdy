@@ -1,9 +1,8 @@
-package pj01_kangyeon.getarea;
+package project01.getarea;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-import static pj01_kangyeon.getarea.AreaDB.*;
+import static project01.getarea.AreaDB.*;
 
 public class AreaMain {
 
@@ -192,40 +191,3 @@ public class AreaMain {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

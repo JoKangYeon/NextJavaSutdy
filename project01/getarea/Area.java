@@ -1,4 +1,4 @@
-package pj01_kangyeon.getarea;
+package project01.getarea;
 
 public class Area {
     private int areaNum;
