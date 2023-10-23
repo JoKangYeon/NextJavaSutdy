@@ -176,7 +176,7 @@ public class AreaMain {
                 System.out.println();
                 System.out.println(white + "승리방법: 7곳을 먼저 점령하거나 상대가 지뢰를 밟으면 승리 !!" + exit);
                 System.out.println();
-                System.out.println(white + "* 게임시작 시 점령지에 20% 확률로 지뢰가 생성됩니다." + exit);
+                System.out.println(white + "* 게임시작 시 점령지에 10% 확률로 지뢰가 생성됩니다." + exit);
                 System.out.println();
                 System.out.println(white + "* 상대 점령지 공격 시 50% 확률로 영토를 점령합니다." + exit);
                 System.out.println(green + "======================================"+ exit);
