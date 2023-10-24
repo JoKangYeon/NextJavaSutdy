@@ -45,9 +45,9 @@ public class Student {
     @Override
     public String toString() {
         return name + ", 국어:" + kor +
-                ",영어" + eng +
-                " 수학" + math +
-                " 평균 = " + avg;
+                ", 영어" + eng +
+                ", 수학" + math +
+                ", 평균 = " + avg;
     }
 
     // 값을 넘겨주는 메소드

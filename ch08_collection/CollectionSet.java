@@ -99,5 +99,6 @@ public class CollectionSet {
         intList.addAll(intSet);
         System.out.println(intList); // 순서는 망가져 있다.
 
+
     }
 }
