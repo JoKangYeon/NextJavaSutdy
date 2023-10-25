@@ -379,65 +379,64 @@ public class ApiDate {
         }
 
 
+        // 꽉찬 달력 만들기
+        year = 2023;
+        month = 9;
 
-
-
-
-        /* // 달력 만들기 2
-        int year2 = 2023;
-        int month2 = 8;
-
-        Calendar calendar2 = Calendar.getInstance();
-        calendar.set(year, month-1, 1);
-        System.out.println(sdf.format(calendar.getTime()));
+        Calendar numCalendar = Calendar.getInstance();
+        Calendar numCalendar2 = Calendar.getInstance();
+        Calendar numCalendar3 = Calendar.getInstance();
+        numCalendar.set(year, month - 1, 1);
+        numCalendar2.set(year, month - 2, 1);
+        numCalendar3.set(year, month, 1);
+        System.out.println(sdf.format(numCalendar.getTime()));
+        System.out.println(sdf.format(numCalendar2.getTime()));
 
         // 1일이 무슨 요일에 시작하는지 알아야 함
         // 1: 일요일, 2: 월요일, 3: 화요일 ..., 7: 토요일
-        int startDay2 = calendar.get(Calendar.DAY_OF_WEEK);
+        startDay = numCalendar.get(Calendar.DAY_OF_WEEK);
         System.out.println(startDay);
 
         // 해당 월의 마지막 일자가 몇인지 알아야 함
-        int lastDay2 = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        lastDay = numCalendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int prelastday = numCalendar2.getActualMaximum(Calendar.DAY_OF_MONTH);
         System.out.println(lastDay);
+        System.out.println(prelastday);
 
         System.out.println(year + "년" + month + "월 달력");
         System.out.println("일\t월\t화\t수\t목\t금\t토");
-        for(int i = 1; i <= 42; i++){
+
+        for (int i = 0; i < 42; i++) {
             // i가 startDay보다 작으면 전월의 마지막 날
-            if(i < startDay2){
-                for(int j = 1; j < startDay2; j++){
-                    System.out.print(red + "j\t" + exit);
+            if (i < startDay) {
+                for(int j = 1; j < startDay; i++){
+
                 }
-
-            }else{
-                // startDay가 3이라면
-                // i 는 3일 때 처음 들어온다.
-                // i = 3 -> 1
-                // i = 4 -> 2
-                // i = 5 -> 3
-
-                // start Day가 4라면
-                // i 는 4일 때 처음 들어온다.
-                // i = 4 -> 1
-                // i = 5 -> 2
-                // i = 6 -> 3
-                // i - startDay + 1
-                int currentDay = i - startDay + 1;
-
-                // currentDay가 lastDay보다 크면 종료
-                if(currentDay > lastDay){
-                    break;
-                }
-
-                System.out.print(currentDay + "\t");
+            } else{
+                System.out.print(i + "\t");
             }
-
             // i가 7, 14, 21, 28, ... 일 때 줄바꾸기
-            if(i % 7 == 0){
+            if (i % 7 == 0) {
                 System.out.println();
             }
+        }
 
-        }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
+
 }
+
