@@ -1,0 +1,99 @@
+단축키 
+1. [Ctrl + alt + t] 드래그 범위 내 태그걸기
+2. [Ctrl + Shift + Insert] 공통값을 넣을 때 한번에 넣기  
+
+기본 구성 요소
+태그 / 속성 (속성명 / 속성값)
+
+기본구조 
+<html> 문서의 시작
+<head> 메타데이터를 정의하는 영역
+<head> HTML 문서에 대한 정보이며, 웹에는 노출 X
+<body> 웹 브라우저에 노출
+<body> 웹에 표시되는 모든내용은 body에 작성 
+<html> 문서의 끝
+
+줄 바꿈 태그 종류
+블록요소 / p태그 -> 사용할 때마다 줄바꿈 (위아래)
+인라인요소 / a태그, span태그 -> 공간이 부족할 때만 줄바꿈
+*모든 코딩은 가독성 중요! / 들여쓰기 해야함
+
+태그 종류
+hn태그 : ex) h1~h6 / h1이 글자크기 가장 큼
+p태그 : 본문 작성 시 사용 ex)하나의 문단 작성 시 
+br태그 : 줄바꿈 
+blcokquote : 어딘가에서 퍼왔을 때 사용 / 출처가 확실하면 cite 속성으로 출처표시 
+ex) <blockquote cite = "https://naver.com> <p>뭐뭐~~내용~~</p> <blcokquote>
+q태그 : 사이내용에 " " 로 표시
+sub태그 / sup태그 : sub는 위 첨자, sup은 아래 첨자
+div태그 : 영역별로 그룹화 
+span태그 : 인라인 요소를 그룹으로 묶을때 사용 
+ex) ~~~~<span>하이라이트<span> 장면은 ~~입니다.
+ul태그 : 비순서형 목록 생성 / 목록내용은 li태그로 생성
+ex) 
+<h1>과일목록</h1>
+<ul>
+    <li>바나나</li>
+    <li>딸기</li>
+    <li>수박</li>
+</ul>
+과일목록        
+*바나나              
+*딸기                 
+*수박 
+ol태그 : 순서형 목록 생성 / 목록내용은 li태그로 생성
+ex) 
+<h1>오늘 할일</h1>
+<ul>
+    <li>잠자기</li>
+    <li>학원가기</li>
+    <li>씻고자기</li>
+</ul>
+오늘 할일       
+1. 잠자기
+2. 학원가기
+3. 씻고자기 
+dl 태그 : 용어와 용어설명 나열 dt=용어, dd=용어설명
+ex)
+<dl>
+    <dt>HTML</dt>
+    <dd>HTML은 뭐뭐뭐 ~~</dd>
+    <dt>조강연</dt>
+    <dd>조강연은 뭐뭐뭐 ~~</dd>
+</dl>
+결과)
+HTML
+    HTML은 뭐뭐뭐 ~~이다
+조강연
+    조강연은 뭐뭐뭐~다
+a태그 : 외부링크 생성 / 경로를 의미하는 href속성이 필수이며 target속성을 선택으로 가능.(디폴트는 self) blank선택 시 새창으로 열림
+임의로 지정하고싶을떄는 #을 속성값을 넣어주면됨(외부 사이트주소도 되고 컴퓨터내 파일경로도 가능)
+ex) <a href="naver.com"></a>
+img태그 : src에 주소또는 경로 입력 필수 *alt는 이미지에 대한 설명인데 써주는게 좋음
+<a href="대상경로><img src="./비버.png" alt="비버다"></a> (./ 현재폴더  ../ 상위폴더)
+strong태그 : 강조 / 굵게나오게함
+em태그 : 기울어져서나옴 
+***** form태그 : HTML의 폼을 구성하는 모든 태그는 form태그 안에 작성
+action 속성(사용자와 상호작용할 URL주소작성)과 method 속성(입력받은 값을 서버에 전송할 송신방식 작성 / get(보안x), post(보안요구))을 함께사용 
+input태그 : 속성값으로 type, name, value가 있으면 type은 필수 name도 그룹화할때 필수 (거의필수) value는 초깃값 
+input태그 종류(text,password number...등등 책 84쪽참고)
+label태그 : 상호작용 요소 
+ex) 체크박스만 클릭하기 애매할때 label사용 시 글자를 눌러도 체크가능 
+/ <label for="userid">아이디</label> <input type="text" id="userid">
+fieldset태그 : 상호작용 요소들을 그룹화
+legend 태그 : fieldset의 이름붙힐수있음
+textarea태그 : 여러내용을 입력할때 사용
+select, option, optgroup 태그 -> 책 -90
+
+
+
+
+
+
+
+
+
+
+
+
+
