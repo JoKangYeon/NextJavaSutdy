@@ -128,6 +128,7 @@ public class ApiJson {
 
         // Key를 이용하여 Value를 꺼내보기
         JSONObject tyResp = (JSONObject)jsonResponse.get("태연");
+        System.out.println(tyResp);
 
         // tyResp 안에 있는 INVU 출력해보기
         JSONArray tyList = (JSONArray)tyResp.get("songs");

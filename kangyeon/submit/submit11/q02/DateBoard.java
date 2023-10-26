@@ -1,4 +1,4 @@
-package kangyeon.submit.submit11.q2;
+package kangyeon.submit.submit11.q02;
 
 public class DateBoard {
     private String title;
