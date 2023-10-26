@@ -406,18 +406,9 @@ public class ApiDate {
         System.out.println(year + "년" + month + "월 달력");
         System.out.println("일\t월\t화\t수\t목\t금\t토");
 
-        for (int i = 0; i < 42; i++) {
-            // i가 startDay보다 작으면 전월의 마지막 날
-            if (i < startDay) {
-                for(int j = 1; j < startDay; i++){
+        for(int i = 0; i < 42; i++){
+            if(i == 0){
 
-                }
-            } else{
-                System.out.print(i + "\t");
-            }
-            // i가 7, 14, 21, 28, ... 일 때 줄바꾸기
-            if (i % 7 == 0) {
-                System.out.println();
             }
         }
 
