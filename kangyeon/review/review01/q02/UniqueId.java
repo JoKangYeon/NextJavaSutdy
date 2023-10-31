@@ -11,10 +11,15 @@ public class UniqueId {
         SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmssSSS");
         Date todayDate = new Date();
         String a = sdf.format(todayDate).toString();
-        int sixRand = (int)(Math.random() * (999999 - 100000 + 1) + 100000);
-        String result = a + sixRand;
+        String result = "";
+        for(int i =0; i < 6; i++){
+            int rand = (int)(Math.random() * 10);
+            result += rand;
 
-        return result;
+        }
+
+
+        return a + result;
     }
 
 
