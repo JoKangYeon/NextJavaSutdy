@@ -6,6 +6,8 @@ public class TryWithResource {
 
     public static void main(String[] args) {
 
+//        이게 더 편할거 같다.
+
 //        Scanner scan = new Scanner(System.in);
 //
 //        try{
