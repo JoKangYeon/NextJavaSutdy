@@ -66,7 +66,7 @@ public class MemberService {
         try {
             result = dao.login(conn, member);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+                throw new RuntimeException(e);
         }   finally {
             cp.releaseConnection(conn);
         }

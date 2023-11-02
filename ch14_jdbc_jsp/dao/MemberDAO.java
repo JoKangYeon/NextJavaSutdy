@@ -14,9 +14,7 @@ import java.util.ArrayList;
 // member 테이블과 연관된 쿼리문만을 작성해놓음
 public class MemberDAO {
 
-    private MemberDAO(){
-
-    }
+    private MemberDAO(){}
 
     private static MemberDAO instance = new MemberDAO();
 
@@ -24,13 +22,13 @@ public class MemberDAO {
         return instance;
     }
 
-    // DAO 메소드에는 파라미터에 Connection 객체가 들어올 예정
+    // DAO의 메소드에는 파라미터에 Connection 객체가 들어올 예정
     // 회원 목록 조회 (SELECT)
     public ArrayList<MemberDTO> getMemberList(Connection conn) throws SQLException {
         // 쿼리문 작성
         StringBuffer query = new StringBuffer();
         query.append("SELECT                 ");
-        query.append("  mem_id               ");
+        query.append("    mem_id             ");
         query.append("  , mem_pw             ");
         query.append("  , mem_name           ");
         query.append("  , mem_score AS score ");
@@ -45,7 +43,6 @@ public class MemberDAO {
 
         // MemberDTO 객체들을 담을 ArrayList 생성
         ArrayList<MemberDTO> result = new ArrayList<>();
-
 
         // 결과 처리
         while(rs.next()){
@@ -66,21 +63,22 @@ public class MemberDAO {
         return result;
     }
 
+
     // 회원가입 (INSERT) 메소드
     public int signUp(Connection conn, MemberDTO member) throws SQLException {
         StringBuffer query = new StringBuffer();
-        query.append("INSERT INTO             ");
-        query.append("      members (         ");
-        query.append("          mem_id        ");
-        query.append("        , mem_pw        ");
-        query.append("        , mem_name      ");
-        query.append("        , mem_score     ");
-        query.append("      ) VALUES (        ");
-        query.append("          ?             ");
-        query.append("        , ?             ");
-        query.append("        , ?             ");
-        query.append("        , ?             ");
-        query.append("      )                 ");
+        query.append("INSERT INTO        ");
+        query.append("    members (      ");
+        query.append("        mem_id     ");
+        query.append("      , mem_pw     ");
+        query.append("      , mem_name   ");
+        query.append("      , mem_score  ");
+        query.append("    ) VALUES (     ");
+        query.append("        ?          ");
+        query.append("      , ?          ");
+        query.append("      , ?          ");
+        query.append("      , ?          ");
+        query.append("    )              ");
 
         PreparedStatement ps = conn.prepareStatement(query.toString());
 
@@ -95,22 +93,22 @@ public class MemberDAO {
         ps.close();
 
         return result;
-
     }
+
 
     // 로그인 (SELECT, WHERE)
     public MemberDTO login(Connection conn, MemberDTO member) throws SQLException {
         StringBuffer query = new StringBuffer();
         query.append("SELECT                 ");
-        query.append("  mem_id               ");
+        query.append("    mem_id             ");
         query.append("  , mem_pw             ");
         query.append("  , mem_name           ");
         query.append("  , mem_score AS score ");
         query.append("FROM                   ");
         query.append("  members              ");
         query.append("WHERE 1=1              ");
-        query.append("  AND mem_id =?        ");
-        query.append("  AND mem_pw =         ");
+        query.append("  AND mem_id = ?       ");
+        query.append("  AND mem_pw = ?       ");
 
         PreparedStatement ps = conn.prepareStatement(query.toString());
 
@@ -130,18 +128,11 @@ public class MemberDAO {
             result.setMemPw(rs.getString("mem_pw"));
             result.setMemName(rs.getString("mem_name"));
             result.setMemScore(rs.getInt("score"));
-
         }
 
         rs.close();
         ps.close();
 
         return result;
-
-
     }
-
-
-
-
 }
