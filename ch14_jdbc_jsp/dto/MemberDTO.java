@@ -2,7 +2,7 @@ package ch14_jdbc_jsp.dto;
 
 // DTO : Data Transfer Object
 // members 테이블의 데이터와 1:1 매핑이 되는 클래스
-// SELECT 쿼리문의 실행 결과와 1:1 매핑이 되는 클래
+// SELECT 쿼리문의 실행 결과와 1:1 매핑이 되는 클래스
 public class MemberDTO {
     // DB의 컬럼명이 mem_id라면 자바에서는 memId으로 씀
     private String memId;

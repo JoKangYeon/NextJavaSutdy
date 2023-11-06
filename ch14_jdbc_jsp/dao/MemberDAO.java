@@ -1,5 +1,6 @@
 package ch14_jdbc_jsp.dao;
 
+import ch14_jdbc_jsp.dto.BoardDTO;
 import ch14_jdbc_jsp.dto.MemberDTO;
 import jdk.swing.interop.LightweightFrameWrapper;
 
