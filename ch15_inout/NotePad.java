@@ -18,7 +18,7 @@ public class NotePad {
         System.out.println("제목을 입력해주세요.");
         System.out.print(">>> ");
         String title = scan.nextLine();
-        File input = new File("/home/pc11/stuList/" + title);
+        File input = new File("/home/pc11/stuList/" + title + ".txt");
 
         System.out.println("내용을 입력해주세요.");
         System.out.print(">>> ");

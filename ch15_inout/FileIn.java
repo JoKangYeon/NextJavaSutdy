@@ -14,7 +14,7 @@ public class FileIn {
         try(FileInputStream fis = new FileInputStream(total);) {
 
             // 데이터를 가져올 그릇(byte[]) 생성
-            byte[] bowl = new byte[3];  // byte[1]는 그릇의 크기가 1바이트임
+            byte[] bowl = new byte[1];  // byte[1]는 그릇의 크기가 1바이트임
 
             String result = "";
             while(true){
