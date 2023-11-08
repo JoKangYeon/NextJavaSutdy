@@ -1,9 +1,9 @@
 package ch16_network.open_api;
 
 public class MedicineDTO {
-    private String entpName;    /* 회사명 */
+    private String entpName;            /* 제조사명 */
     private String itemName;            /* 약품명 */
-    private String efcyQesitm;           /* 설명 */
+    private String efcyQesitm;           /* 약을 먹어야 하는 증상  */
 
     public MedicineDTO() {
     }

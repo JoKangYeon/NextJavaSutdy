@@ -73,7 +73,9 @@ public class OpenAPI {
             writer.write(body.toString());
         }
 
-
+        // 4677 개를 다 불러다 DB에 넣기
+        // (아마도 한번에 100개 이상 응답 못받을 수도 있다.)
+        // (= 100개씩 47번 pageNO를 바꿔가며 요청하고 응답받아야 함)
 
 
 

@@ -21,19 +21,19 @@ public class MedicineDAO {
         return instance;
     }
 
-    // 약품넣기
+    // 약 데이터 추가(INSERT)
     public int insertMc(Connection conn, MedicineDTO medicineDTO) throws SQLException {
         StringBuffer query = new StringBuffer();
-        query.append("INSERT INTO                     ");
-        query.append("         medicines (            ");
-        query.append("         entp_name              ");
-        query.append("       , item_name              ");
-        query.append("       , efcyqesitm             ");
-        query.append(" )       VALUES (               ");
-        query.append("         ?                      ");
-        query.append("       , ?                      ");
-        query.append("       , ?                      ");
-        query.append("       )                        ");
+        query.append("INSERT INTO                ");
+        query.append("         medicines (       ");
+        query.append("         entp_name         ");
+        query.append("       , item_name         ");
+        query.append("       , efcyqesitm        ");
+        query.append(" )       VALUES (          ");
+        query.append("         ?                 ");
+        query.append("       , ?                 ");
+        query.append("       , ?                 ");
+        query.append(" )                         ");
 
         PreparedStatement ps = conn.prepareStatement(query.toString());
 
@@ -58,8 +58,8 @@ public class MedicineDAO {
         query.append("       , item_name         ");
         query.append("       , efcyqesitm        ");
         query.append("FROM     medicines         ");
-        query.append("WHERE                      ");
-        query.append("efcyqesitm LIKE  ?  ");
+        query.append("WHERE   1=1                ");
+        query.append("  AND efcyqesitm LIKE   ?  ");
 
         PreparedStatement ps = conn.prepareStatement(query.toString());
 
