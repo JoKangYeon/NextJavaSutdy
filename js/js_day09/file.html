@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>file</title>
+</head>
+<body>
+<form name="frm1">
+    <input type="file" name="upload" multiple   >
+    <button type="button">전송</button>
+</form>
+<script>
+    document.querySelector("button").addEventListener("click", () => {
+        const files = document.frm1.upload.files
+        Array.from(files).forEach(file => {
+            console.log("파일명: ", file.name)
+            console.log("크기: ", file.size)
+            console.log("타입: ", file.type)
+            console.log("마지막수정: ", file.lastModified)
+        })
+    })
+</script>
+</body>
+</html>

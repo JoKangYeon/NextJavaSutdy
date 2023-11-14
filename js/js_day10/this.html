@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<body>
+<!--<button onclick="myName()">전송</button>-->
+<p>text-1</p>
+<p>text-2</p>
+<p>text-3</p>
+<script>
+    const pEls = document.querySelector("p")
+    pEls.forEach((el) => {
+      el.addEventListener("click", function () {
+        this.style.color = "red"
+      })
+    })
+
+
+
+
+   /* function myName(){
+      console.log(this)
+    }*/
+</script>
+</body>
+</html>

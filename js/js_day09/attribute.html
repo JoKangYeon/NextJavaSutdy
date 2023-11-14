@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute</title>
+</head>
+<body>
+<a href="https://www.gilbut.co.kr">길벗</a>
+<script>
+    const aEl = document.querySelector("a")
+    console.log("주소: " + aEl.getAttribute("href"))
+    aEl.setAttribute("href", "https://nextit.or.kr")
+    aEl.textContent = "넥스트아이트교육센터"
+    aEl.setAttribute("data-link", "넥스트아이티")
+</script>
+</body>
+</html>

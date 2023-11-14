@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bignec</title>
+    <style>
+        body{
+            background-color: black;
+        }
+
+        div{
+            /*border: 1px solid red;*/
+        }
+
+        .container{
+            width: 1400px;
+            /* display: block인 요소 자체를 수평 가운데 정렬 */
+            margin: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .header{
+            position: fixed;
+            top: 0;     /* 화면 상단에 위치 */
+            width: 1400px;
+            background-color: black;
+
+            height: 70px;
+            display: flex;    /* = .header > div{  display: inline-block;} */
+            /* 수평 정렬 */
+            justify-content: space-between;
+            /* 수직 정렬 */
+            align-items: center;    /*line-height: 70px;*/
+        }
+
+        .header > div:nth-child(2){
+            width: 300px;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header > div:nth-child(2) > a{
+            color: white;
+            text-decoration: none;
+            font-weight: 430;
+        }
+
+        .header > div:nth-child(1){
+            color: orange;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .header > div:nth-child(3){
+            background-color: orange;
+            padding: 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            user-select: none;  /* 태그 내 요소 드래그 방지 */
+        }
+        .header > div:nth-child(3):hover{
+            background-color: rgba(189, 123, 0, 0.99);
+        }
+        .header > div:nth-child(3):active{
+            /*background-color: rgba(136, 88, 0, 0.99);*/
+            filter: brightness(70%);
+        }
+
+        .banner {
+            margin-top: 70px;
+            height: 400px;
+            display: flex;
+        }
+
+        .banner > div{
+            /* 부모 크기의 절반 */
+            width: 50%;
+        }
+
+        .banner > div:nth-child(1){
+            /* justify-content: center; */
+
+            /* 내부요소가 display: inline일 때, 수평정렬 시키기 */
+            text-align: center;
+        }
+
+        .banner h2{
+            color: orange;
+        }
+
+        .banner p{
+            color: white;
+            width: 60%;
+            /* 글 높이 간격 조정 */
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .banner > div:nth-child(2){
+            display: flex;
+            /* 수평을 수직방향으로 변경 */
+            flex-direction: column;
+            /* 방향 바뀐 후 수평 정렬 */
+            align-items: center;
+            /* 방향 바뀐 후 수직 정렬 */
+            justify-content: center;
+        }
+
+        .menu{
+            background-color: white;
+        }
+
+        .menu > h1{
+            color: orange;
+            text-align: center;
+        }
+
+        .menu-list{
+            width: 80%;
+            margin: auto;
+            display: flex;
+            /* 자식 요소의 크기가 한줄을 넘어가면 줄바꿈 적용 */
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card{
+            height: 400px;
+            /* 부모 width 크기의 1/3 만큼 부여 */
+            width: calc(100%/3 - 20px);
+            margin-bottom: 20px;
+            /* 그림자의 x좌표, 그림자의 y좌표, 그림자의 번짐정도, 그림자 크기, 그림자 색상*/
+            box-shadow: 0px 0px 8px 4px gainsboro;
+            border-radius: 20px;
+
+            /* 자식요소 중에 튀어나오는게 있으면 안보이게함 */
+            overflow: hidden;
+        }
+        .card > div:nth-child(1){
+            height: 60%;
+            display: flex;
+            justify-content: center;
+        }
+        .card > div:nth-child(2){
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .card h2{
+            margin: 0;
+        }
+
+        .footer{
+            height: 400px;
+            background-color: #121227;
+            display: flex;
+        }
+        .footer > div:nth-child(1){
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer > div:nth-child(2){
+            width: 50%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div>넥도날드</div>
+        <div>
+            <a href="">home</a>
+            <a href="#hamCotainer">메뉴</a>
+            <a href="#map">매장찾기</a>
+        </div>
+        <div>로그인/회원가입</div>
+    </div>
+    <div class="banner">
+        <div>
+            <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601893961440-b6ccca7f9de7%3Fixlib%3Drb-4.0.3%26ixid%3DMnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHw%253D%26w%3D1000%26q%3D80&type=a340" height="100%" width="450">
+        </div>
+        <div>
+            <h2>빅넥 출시</h2>
+            <p>둘이 먹다가 하나 죽어도 아무도 모르는 환상의 맛... 100% 순 게 살코기에 해저 치즈, 피클, 상추, 토마토,
+                양파 그걸 김이 모락모락 나는 참깨방 사이에 넣어서 먹으면...</p>
+        </div>
+    </div>
+    <div class="menu">
+        <h1>햄버거 목록</h1>
+        <div id="hamCotainer" class="menu-list">
+            <div class="card">
+                <div>
+                    <img src=https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMTNfMjEy%2FMDAxNjc2Mjc1NDQwOTU2.kfTZoNbhr1ax3YYuwN-5DwKmh8OQ2z10Kyt5B0n8q40g.0RzWbHvHJDqJGbqm8USlrO-Jvzo-zaJoljmPO_slKNwg.JPEG.deepof%2F5_BLT%25B9%25F6%25B0%25C5.jpg&type=a340>
+                </div>
+                <div>
+                    <h2>빅넥</h2>
+                    <h2>4,000원</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img src=https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMTNfMjEy%2FMDAxNjc2Mjc1NDQwOTU2.kfTZoNbhr1ax3YYuwN-5DwKmh8OQ2z10Kyt5B0n8q40g.0RzWbHvHJDqJGbqm8USlrO-Jvzo-zaJoljmPO_slKNwg.JPEG.deepof%2F5_BLT%25B9%25F6%25B0%25C5.jpg&type=a340>
+                </div>
+                <div>
+                    <h2>빅넥</h2>
+                    <h2>4,000원</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img src=https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMTNfMjEy%2FMDAxNjc2Mjc1NDQwOTU2.kfTZoNbhr1ax3YYuwN-5DwKmh8OQ2z10Kyt5B0n8q40g.0RzWbHvHJDqJGbqm8USlrO-Jvzo-zaJoljmPO_slKNwg.JPEG.deepof%2F5_BLT%25B9%25F6%25B0%25C5.jpg&type=a340>
+                </div>
+                <div>
+                    <h2>빅넥</h2>
+                    <h2>4,000원</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img src=https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMTNfMjEy%2FMDAxNjc2Mjc1NDQwOTU2.kfTZoNbhr1ax3YYuwN-5DwKmh8OQ2z10Kyt5B0n8q40g.0RzWbHvHJDqJGbqm8USlrO-Jvzo-zaJoljmPO_slKNwg.JPEG.deepof%2F5_BLT%25B9%25F6%25B0%25C5.jpg&type=a340>
+                </div>
+                <div>
+                    <h2>빅넥</h2>
+                    <h2>4,000원</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img src=https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMTNfMjEy%2FMDAxNjc2Mjc1NDQwOTU2.kfTZoNbhr1ax3YYuwN-5DwKmh8OQ2z10Kyt5B0n8q40g.0RzWbHvHJDqJGbqm8USlrO-Jvzo-zaJoljmPO_slKNwg.JPEG.deepof%2F5_BLT%25B9%25F6%25B0%25C5.jpg&type=a340>
+                </div>
+                <div>
+                    <h2>빅넥</h2>
+                    <h2>4,000원</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img src=https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMTNfMjEy%2FMDAxNjc2Mjc1NDQwOTU2.kfTZoNbhr1ax3YYuwN-5DwKmh8OQ2z10Kyt5B0n8q40g.0RzWbHvHJDqJGbqm8USlrO-Jvzo-zaJoljmPO_slKNwg.JPEG.deepof%2F5_BLT%25B9%25F6%25B0%25C5.jpg&type=a340>
+                </div>
+                <div>
+                    <h2>빅넥</h2>
+                    <h2>4,000원</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="map">
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51428.426216903696!2d127.38385625243306!3d36.32984468841621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654933838a923d%3A0x98c408452d9be8fe!2z67KE6rGw7YK5IOuMgOyghOyaqeuRkERU7KCQ!5e0!3m2!1sko!2skr!4v1699945478358!5m2!1sko!2skr" width="700" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div id="daumRoughmapContainer1699945633076" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+    </div>
+</div>
+
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+<!-- 3. 실행 스크립트 -->
+<script charset="UTF-8">
+    new daum.roughmap.Lander({
+        "timestamp" : "1699945633076",
+        "key" : "2gtak",
+        "mapWidth" : "700",
+        "mapHeight" : "400"
+    }).render();
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 가위바위보</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h3 class="h3 text-center my-3">가위 바위 보 게임</h3>
+    <div class="row my-3">
+        <div class="col text-bg-success text-center">사람</div>
+        <div class="col text-bg-primary text-center">AI컴퓨터</div>
+    </div>
+    <div class="row my-3">
+        <div class="col"><img src="images/바위_좌.png" alt="사람: 바위" id="manImg" class="rounded mx-auto d-block"></div>
+        <div class="col"><img src="images/바위_우.png" alt="ai컴퓨터: 바위" id="aiImg" class="rounded mx-auto d-block"></div>
+    </div>
+    <div class="text-center my-3">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" onclick="sci()"  name="rps" id="scissor" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="scissor">가위</label>
+            <input type="radio" class="btn-check" name="rps"  onclick="rock()"  id="rock" autocomplete="off">
+            <label class="btn btn-outline-primary" for="rock">바위</label>
+            <input type="radio" class="btn-check" onclick="paper()" name="rps" id="paper" autocomplete="off">
+            <label class="btn btn-outline-primary" for="paper">보</label>
+        </div>
+    </div>
+    <div  id="result" style="display: none;color: red; text-align: center"></div>
+</div>
+<script>
+    function ai(a){
+        const rsp = ['가위', '바위', '보']
+        let ai = rsp[(parseInt(Math.random() * 3))]
+        let aiRsp = document.querySelector("#aiImg")          // document.getElementById("aiImg")
+        if(ai === '가위'){
+            aiRsp.src="images/가위_우.png"
+            if(a === ai ){
+                displayMessage(`User: ${player} ai: ${ai} // 비겼다 !`)
+            }else if((a === '가위' && ai === '보')
+                || (a === '바위' && ai === '가위')
+                || (a === '보' && ai === '바위')){
+                displayMessage(`User: ${a} ai: ${ai} // 유저승리!`)
+            }else{
+                displayMessage(`User: ${a} ai: ${ai}  //  AI승리!`)
+            }
+        }else if(ai === '바위'){
+            aiRsp.src="images/바위_우.png"
+            if(a === ai ){
+                displayMessage(`User: ${a} ai: ${ai} // 비겼다 !`)
+            }else if((a === '가위' && ai === '보')
+                || (a === '바위' && ai === '가위')
+                || (a === '보' && ai === '바위')){
+                displayMessage(`User: ${a} ai: ${ai} // 유저승리!`)
+            }else{
+                displayMessage(`User: ${a} ai: ${ai}  //  AI승리!`)
+            }
+        }else if(ai === '보'){
+            aiRsp.src="images/보_우.png"
+            if(a === ai ){
+                displayMessage(`User: ${a} ai: ${ai} // 비겼다 !`)
+            }else if((a === '가위' && ai === '보')
+                || (a === '바위' && ai === '가위')
+                || (a === '보' && ai === '바위')){
+                displayMessage(`User: ${a} ai: ${ai} // 유저승리!`)
+            }else{
+                displayMessage(`User: ${a} ai: ${ai}  //  AI승리!`)
+            }
+        }
+
+    }
+    function sci(){
+        let rand = document.getElementById("manImg")
+        rand.src="images/가위_좌.png"
+        ai('가위')
+
+    }
+    function rock(){
+        let rand = document.getElementById("manImg")
+        rand.src="images/바위_좌.png"
+        ai('바위')
+
+    }
+    function paper(){
+        let rand = document.getElementById("manImg")
+        rand.src="images/보_좌.png"
+        ai('보')
+
+    }
+
+    function displayMessage(message){
+        let result = document.querySelector("#result")
+        result.style.display = "block"
+        result.textContent = message
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    const rsp = ['가위', '바위', '보']
+
+    let player = prompt('가위 / 바위 / 보 중 1개를 입력해주세요')
+
+    let ai = rsp[(parseInt(Math.random() * 3))]
+
+    if(player === ai ){
+        alert(`User: ${player} ai: ${ai} // 비겼다 !`)
+    }else if((player === '가위' && ai === '보')
+        || (player === '바위' && ai === '가위')
+        || (player === '보' && ai === '바위')){
+        alert(`User: ${player} ai: ${ai} // 유저승리!`)
+    }else{
+        alert(`User: ${player} ai: ${ai}  //  컴퓨터승리!`)
+    }*/
+</script>
+</body>
+</html>

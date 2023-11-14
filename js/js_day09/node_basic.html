@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node basic</title>
+</head>
+<body>
+<script>
+    const aEl = document.createElement("a")
+    document.body.appendChild(aEl)
+    const txtEl = document.createTextNode("길벗")
+    aEl.appendChild(txtEl)
+    const attrEl = document.createAttribute("href")
+    attrEl.value = "https//www.gilbut.co.kr"
+    aEl.setAttributeNode(attrEl)
+</script>
+</body>
+</html>

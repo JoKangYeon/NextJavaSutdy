@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>remove child</title>
+</head>
+<body>
+<ul>
+    <li>길벗</li>
+    <li>수코딩</li>
+    <li>넥스트</li>
+    <li>아이티</li>
+</ul>
+<script>
+    document.querySelectorAll("li").forEach(liEl => {
+        liEl.addEventListener("dblclick", ev => {
+            liEl.parentNode.removeChild(liEl)
+        })
+    })
+</script>
+</body>
+</html>

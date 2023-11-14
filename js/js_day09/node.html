@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <button class="btn btn-danger" type="button" onclick="loading()">
+        <span class="spinner-grow-sm" aria-hidden="true"></span>
+        <span role="status">Start</span>
+    </button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script>
+const loading = () => {
+    if(document.querySelector(".spinner-grow-sm").classList.contains("spinner-grow")){
+        document.querySelector("span").classList.remove("spinner-grow")
+        document.querySelector("span[role=status]").textContent = "Start"
+    }else{
+        document.querySelector("span").classList.add("spinner-grow")
+        document.querySelector("span[role=status]").textContent = "Loading..."
+    }
+}
+</script>
+</body>
+</html>

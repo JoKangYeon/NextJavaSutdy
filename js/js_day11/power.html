@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>power</title>
+</head>
+<body>
+<img src="images/switch_off.png" alt="전원 꺼짐" style="width: 50%">
+<script>
+    const powerImage = document.querySelector("img")
+    let powerFlag = false
+    powerImage.addEventListener("click", function (ev){
+        if(powerFlag){
+            powerImage.src = "images/switch_on.png"
+            powerImage.alt = "전원 켜짐"
+            powerFlag = false
+        }else{
+            powerImage.src = "images/switch_off.png"
+            powerImage.alt = "전원 꺼짐"
+            powerFlag = true
+        }
+    })
+</script>
+</body>
+</html>

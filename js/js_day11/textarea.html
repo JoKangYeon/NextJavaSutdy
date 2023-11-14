@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>textarea</title>
+</head>
+<body>
+<div>
+    <input type="text" id="message" name="message">
+    <button id="okBtn">확인</button>
+</div>
+
+<textarea id="log" name="log" cols="31" rows="20"></textarea>
+
+<script>
+    // document.querySelector("#log").value = "글자가 굵어짐"
+    // document.querySelector("#log").textContent = "글자가 굵어짐"
+    // document.querySelector("#log").innerHTML = "글자가 굵어짐"
+    const log = document.querySelector("#log")
+    document.querySelector("#okBtn").addEventListener("click", () =>{
+        // 1. value, innerHTML, innerText, textContent
+        // log.value += document.querySelector("#message").value + "\n"
+
+        // 2. 노드방식
+        const message = document.createTextNode(document.querySelector("#message").value + "\n")
+        log.appendChild(message)
+
+    })
+</script>
+</body>
+</html>

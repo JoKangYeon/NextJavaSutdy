@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop</title>
+</head>
+<body>
+<script>
+    for (let i = 2; i < 10; i++) {
+        document.write(`${i}단 <br>`)
+        for (let j = 1; j < 10; j++) {
+            // document.write(i + ' x ' + j + ' = ' + (i*j) + '<br>')
+            document.write(`${i} * ${j} = ${i * j}<br>`)
+        }
+        document.write('<br>')
+    }
+
+    let count = 0;
+    for (let i = 1; i < 1000; i++) {
+        if(i % 2 == 0){
+            count++;
+        }
+    }document.write(count + '<br>')
+
+    document.write('===================================== <br>')
+
+    for (let i = 100; i < 1000; i++) {
+        let h = parseInt(i / 100)
+        let t = parseInt(i / 10) - (10 * h)
+        let o = i - (parseInt(i / 10) * 10)
+
+        let sum = Math.pow(h, 3) + Math.pow(t, 3) + Math.pow(o, 3)
+        if(sum == i){
+            document.write(sum + "<br>")
+        }
+    }
+
+    document.write('===================================== <br>')
+
+
+      for (let i = 100; i < 1000; i++) {
+          let h = i - (i%100)
+          let t = (i%100) - (i%100) % 10
+          let o = i - h - t;
+
+          let devideH = h / 100
+          let devideT = t / 10
+
+          let sum = Math.pow(devideH, 3) + Math.pow(devideT, 3) + Math.pow(o, 3)
+          if(sum == i){
+              document.write(sum + "<br>")
+          }
+      }
+
+    document.write('===================================== <br>')
+
+    for (let i = 100; i < 1000; i++) {
+        let sum = 0
+        let temp = i
+        while (temp != 0){
+            sum += Math.pow(temp % 10, 3)
+            temp = parseInt(temp / 10)
+        }
+        if(i == sum) {
+            document.write(`${sum} <br>`)
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

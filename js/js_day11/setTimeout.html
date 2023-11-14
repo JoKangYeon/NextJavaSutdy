@@ -1,0 +1,84 @@
+﻿<html>
+<head>
+    <script>
+        let Time_ID
+        // 1초마다 배경화면이 바뀌도록 하시오.
+        function changeBackground() {
+            document.body.style.backgroundColor = changeColor();
+            document.body.style.color = reverseChangeColor();
+            Time_ID = setTimeout(changeBackground, 1000);
+        }
+
+        function changeColor() {
+            ranRed = Math.floor(Math.random()*(255 - 0 + 1)) - 0;
+            ranGreen = Math.floor(Math.random()*(255 - 0 + 1)) - 0;
+            ranBlue = Math.floor(Math.random()*(255 - 0 + 1)) - 0;
+            var redColor = ((ranRed.toString(16).length == 1) ? "0" + ranRed.toString(16) : ranRed.toString(16));
+            var greenColor = ((ranGreen.toString(16).length == 1) ? "0" + ranGreen.toString(16) : ranGreen.toString(16));
+            var blueColor = ((ranBlue.toString(16).length == 1) ? "0" + ranBlue.toString(16) : ranBlue.toString(16));
+            var displayedColor = ranRed  + " : " + redColor + ", " + ranGreen + " : " + greenColor + ", " + ranBlue + " : " + blueColor;
+            var displayColor = `#${redColor}${greenColor}${blueColor}`;
+            document.getElementById("displayColor").innerHTML = displayedColor;
+            return displayColor;
+        }
+
+        function reverseChangeColor() {
+            fontRed = 255 - ranRed;
+            fontGreen = 255 - ranGreen;
+            fontBlue = 255 - ranBlue;
+            var redColor = ((fontRed.toString(16).length == 1) ? "0" + fontRed.toString(16) : fontRed.toString(16));
+            var greenColor = ((fontGreen.toString(16).length == 1) ? "0" + fontGreen.toString(16) : fontGreen.toString(16));
+            var blueColor = ((fontBlue.toString(16).length == 1) ? "0" + fontBlue.toString(16) : fontBlue.toString(16));
+            var displayedColor = fontRed  + " : " + redColor + ", " + fontGreen + " : " + greenColor + ", " + fontBlue + " : " + blueColor;
+            var displayColor = `#${redColor}${greenColor}${blueColor}`;
+            document.getElementById("displayColor").innerHTML = displayedColor;
+            return displayColor;
+        }
+
+        function stopChanging() {
+            clearInterval(Time_ID);
+        }
+    </script>
+    <style>
+        center {
+            margin-top:5px;
+        }
+        div {
+            font-size:27px;
+            font-family:나눔고딕;
+            margin:10px 10px 0 10px;
+
+            #displayColor {
+                margin:5px;
+            }}
+    </style>
+</head>
+<body>
+<center>
+    <input type="button" value="시작하기" onclick="changeBackground()">
+    <input type="button" value="멈추기" onclick="stopChanging()">
+</center>
+<div id="displayColor"></div>
+<h1 align="center">색을 지정하는 방법</h1>
+<div>
+    <ol>
+        <li>#RRGGBB</li>
+        <li>색이름을 영문으로 쓴다(ex. black, pink, yellow)</li>
+    </ol>
+</div>
+<div>
+<pre>
+색 만들기
+0부터 255까지의 수를 16진수로 표현하면 된다.
+255를 16진수로 표현하는 방법
+var a = 255;
+a.toString(16); // 왼쪽과 같이 하면 ff라는 문자가 출력된다.
+만약에 빨간 색을 만들고 싶으면
+var red = 255;
+var green = 0;
+var blue = 0;
+document.body.style.backgroundColor = `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+</pre>
+</div>
+</body>
+</html>

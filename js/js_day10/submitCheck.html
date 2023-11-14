@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>check</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h3 class="h3 text-center my-3">가위 바위 보 게임</h3>
+    <div class="row my-3">
+        <div class="col text-bg-success text-center">사람</div>
+        <div class="col text-bg-primary text-center">AI컴퓨터</div>
+    </div>
+    <div class="row my-3">
+        <div class="col"><img src="images/바위_좌.png" alt="사람: 바위" id="manImg" class="rounded mx-auto d-block"></div>
+        <div class="col"><img src="images/바위_우.png" alt="ai컴퓨터: 바위" id="aiImg" class="rounded mx-auto d-block"></div>
+    </div>
+    <div class="text-center my-3">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="rps" id="scissor" autocomplete="off" checked value="가위">
+            <label class="btn btn-outline-primary" for="scissor">가위</label>
+            <input type="radio" class="btn-check" name="rps" id="rock" autocomplete="off" value="바위">
+            <label class="btn btn-outline-primary" for="rock">바위</label>
+            <input type="radio" class="btn-check" name="rps" id="paper" autocomplete="off" value="보">
+            <label class="btn btn-outline-primary" for="paper">보</label>
+        </div>
+    </div>
+    <div  id="result" style="display: none;color: red; text-align: center"></div>
+</div>
+<script>
+    const manImg = document.querySelector("#manImg")
+    const aiImg = document.querySelector("#aiImg")
+
+    document.querySelectorAll("input[name=rps]").forEach(el => {
+        el.addEventListener("click", function () {
+            // 입력받는 부분
+            let player = el.value
+            let ranNum = Math.floor(Math.random() * (2 - 0 + 1) + 0)
+            const computerArr = ["가위", "바위", "보"]
+            let ai = computerArr[ranNum]
+
+            // 처리하는 부분
+            let result = ""
+            if (player === ai) {
+                result = "비겼습니다."
+            } else if (player === "가위" && ai === "바위"
+                || player === "바위" && ai === "보"
+                || player === "보" && ai === "가위") {
+                result = "AI 컴퓨터 승!"
+            } else {
+                result = "플레이어 승!"
+            }
+            // 출력하는 부분
+            manImg.src = `images/${player}_좌.png`
+            aiImg.src = `images/${ai}_우.png`
+            document.querySelector("#result").textContent = result
+        })
+    })
+
+</script>
