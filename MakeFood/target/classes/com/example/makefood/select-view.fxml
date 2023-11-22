@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="container" prefHeight="840.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.makefood.SelectController">
+   <children>
+      <ImageView fx:id="foodView" fitHeight="610.0" fitWidth="476.0" layoutX="51.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="580.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" text="조리법 :" />
+      <Label fx:id="recipe" layoutX="708.0" layoutY="170.0" prefHeight="40.0" prefWidth="500.0" text="Label" />
+      <Label fx:id="foodName" layoutX="71.0" layoutY="63.0" prefHeight="77.0" prefWidth="680.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="580.0" layoutY="235.0" prefHeight="40.0" prefWidth="100.0" text="재료 :" />
+      <Label fx:id="ingredient" layoutX="708.0" layoutY="235.0" prefHeight="129.0" prefWidth="500.0" text="Label" />
+      <Label layoutX="580.0" layoutY="420.0" prefHeight="40.0" prefWidth="100.0" text="열량 :" />
+      <Label layoutX="580.0" layoutY="475.0" prefHeight="40.0" prefWidth="100.0" text="탄수화물 :" />
+      <Label layoutX="580.0" layoutY="530.0" prefHeight="40.0" prefWidth="100.0" text="단백질 :" />
+      <Label layoutX="580.0" layoutY="585.0" prefHeight="40.0" prefWidth="100.0" text="지방 :" />
+      <Label layoutX="580.0" layoutY="640.0" prefHeight="40.0" prefWidth="100.0" text="나트륨 :" />
+      <Label fx:id="energy" layoutX="680.0" layoutY="420.0" prefHeight="40.0" prefWidth="100.0" text="Label" />
+      <Label fx:id="carbohydrates" layoutX="680.0" layoutY="475.0" prefHeight="40.0" prefWidth="100.0" text="Label" />
+      <Label fx:id="protein" layoutX="680.0" layoutY="530.0" prefHeight="40.0" prefWidth="100.0" text="Label" />
+      <Label fx:id="fat" layoutX="680.0" layoutY="585.0" prefHeight="40.0" prefWidth="100.0" text="Label" />
+      <Label fx:id="natrium" layoutX="680.0" layoutY="640.0" prefHeight="40.0" prefWidth="100.0" text="Label" />
+      <Button fx:id="backBtn" layoutX="1060.0" layoutY="63.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="148.0" text="이전으로" onMouseClicked="#backStage" />
+   </children>
+</AnchorPane>
