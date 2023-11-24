@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주소 검색</title>
+</head>
+<body>
+<h2>지번/도로명 주소 검색</h2>
+<button>현재 창 닫기</button>
+<div id="message"></div>
+<input type="text" id="childMessage">
+<button id="childBtn">부모로 전송</button>
+<script>
+    // 자식창에서는 부모를 opener라는 객를 통해서 접근한다.
+    document.querySelector("button").addEventListener("click", () => {
+        window.close()
+    })
+    document.querySelector("#childBtn").addEventListener("click", () => {
+        const data = document.querySelector("#childMessage").value
+        opener.document.querySelector("#data").value = data
+        window.close()
+    })
+</script>
+</body>
+</html>

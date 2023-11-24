@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax 1</title>
+</head>
+<body>
+<button id="sendBtn">전송</button>
+<button id="fetchBtn">fetch 전송</button>
+<div id="studentResult"></div>
+<script>
+    document.querySelector("#sendBtn").addEventListener("click", () => {
+        const xhr = new XMLHttpRequest()
+        xhr.open("GET", "student.json")
+        xhr.send()
+
+        // 서버로부터 데이터의 응답이 왔을 때 호출
+        xhr.onreadystatechange = function () {
+            // 정상적으로 서버에서 응답이 온 경우
+            /*
+            readyState 프로퍼티 값
+            0: 아직 아무도 요청도 하지 않은 상태
+            1: 서버로 자료를 요청하고 성공한 상태
+            2: 서버 요청에 대한 응답으로 헤더가 도착한 상태
+            3: 서버에서 자료가 로딩 중인 상태
+            4: 자료 처리가 끝나 프로그램에서 사용할 수 있는 상태
+             */
+            if(xhr.readyState === 4 && xhr.status === 200){
+                console.log(typeof xhr.responseText)
+                let students = JSON.parse(xhr.responseText)
+                typeof console.log(students)
+                let output = ""
+                students.forEach(s => {
+                    output += `<h3>${s.name}</h3><ul><li>${s.major}</li><li>${s.grade}</li></ul>`
+                })
+                document.querySelector("#studentResult").innerHTML = output
+            }
+        }
+    })
+
+    document.querySelector("#fetchBtn").addEventListener("click", () => {
+        // ES6(2015)부터 제공하는 Ajax 관련 함수
+        fetch("student.json", {method: "GET"})
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                let output = ""
+                data.forEach(s => {
+                    output += `<h3>${s.name}</h3><ul><li>${s.major}</li><li>${s.grade}</li></ul>`
+                })
+                document.querySelector("#studentResult").innerHTML = output
+        })
+    })
+</script>
+</body>
+</html>

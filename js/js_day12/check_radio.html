@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="myform" id="myform">
+    이 름 : <input type="text" id="name" name="name"><br><br>
+    성 별 : <input type="radio" name="sung" id="male">남
+           <input type="radio" name="sung" id="female">여<br><br>
+    취 미 :
+    <input type="checkbox" name="like" value="여행">여행
+    <input type="checkbox" name="like" value="독서">독서
+    <input type="checkbox" name="like" value="영화감상">영화감상
+    <input type="checkbox" name="like" value="바둑">바둑
+    <input type="checkbox" name="like" value="장기">장기
+    <input type="checkbox" name="like" value="등산">등산
+    <input type="checkbox" name="like" value="낚시">낚시
+    <br><br>
+    <button id="btn" type="submit">결과출력</button><br><br>
+
+    <textarea cols="60" rows="10" id="result"></textarea>
+</form>
+<script>
+    let hobbyList = []
+    document.querySelector("#myform").addEventListener("submit", (ev) => {
+        ev.preventDefault()
+        let uname = document.querySelector("#name").value
+        let hobby = document.querySelectorAll("input[name=like]")
+        let male = document.querySelector("#male").checked
+        let female = document.querySelector("#female").checked
+        let gender = ""
+        if(male){
+            gender = '남자'
+        }else if(female){
+            gender = '여자'
+        }
+        hobby.forEach(el => {
+            if(el.checked){
+                hobbyList.push(el.value)
+            }
+        })
+
+        if(hobbyList.length === 0){
+            document.querySelector("#result").innerHTML = `=========================\n${uname}씨!!\n당신은 ${gender}이고,\n취미는 없군요\n`
+        }else{
+            document.querySelector("#result").innerHTML = `=========================\n${uname}씨!!\n당신은 ${gender}이고,\n취미는 ${hobbyList} 이군요\n`
+        }
+    })
+</script>
+</body>
+</html>

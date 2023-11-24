@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배송지</title>
+</head>
+<body>
+
+<button id="popup">팝업창 보여주기</button>
+<button id="closeBtn">자식창 닫기</button>
+
+<input type="text" id="data">
+<button id="sendBtn">전송</button>
+<script>
+    let popup
+    document.querySelector("#popup").addEventListener("click", () => {
+        popup = window.open("popup.html", "popup", "width=300, height=200")
+    })
+    document.querySelector("#closeBtn").addEventListener("click", () => {
+        popup.window.close()
+    })
+    document.querySelector("#sendBtn").addEventListener("click", () => {
+        const value = document.querySelector("#data").value
+        popup.document.querySelector("#message").textContent = value
+    })
+</script>
+</body>
+</html>

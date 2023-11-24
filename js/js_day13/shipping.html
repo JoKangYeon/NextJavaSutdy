@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배송지 저장</title>
+</head>
+<body>
+<form>
+    <div>
+        <label>주소: <input type="text" id="roadAddr" readonly></label>
+    </div>
+    <div>
+        <label>우편번호: <input type="text" id="zipCode" readonly></label>
+    </div>
+    <div>
+        <label>상세주소: <input type="text" id="detailAddress"></label>
+    </div>
+    <div>
+        <button type="button" id="searchBtn">주소 검색</button>
+    </div>
+    <button>저장</button>
+</form>
+<script>
+    document.querySelector("#searchBtn").addEventListener("click", () => {
+        const popup = window.open("address.html", "popup", "width=380px, height=480px")
+    })
+</script>
+</body>
+</html>
