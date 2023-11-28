@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    width: 100vw;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div {
+    /*border: solid red;*/
+}
+
+.leftContainer{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightContainer {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    padding: 20px;
+}
+
+.rightContainer > div {
+    display: flex;
+    width: 80%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+#imageBox {
+    width: 80%;
+    height: 80%;
+}
+
+#imageBox > img {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    height: 80%;
+    font-size: 20px;
+    font-weight: 600;
+}
+
