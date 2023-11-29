@@ -1,4 +1,0 @@
-function deleteCurrentStorage(){
-    sessionStorage.clear()
-}
-
